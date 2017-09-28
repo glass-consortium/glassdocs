@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HOME on GLASS Workflows</title>
+    <link>https://secure.sbamin.com/</link>
+    <description>Recent content in HOME on GLASS Workflows</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://secure.sbamin.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Credits</title>
+      <link>https://secure.sbamin.com/credits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://secure.sbamin.com/credits/</guid>
+      <description> Samir B. Amin Hoon Kim Sahil Seth Ming Tang Roel Verhaak  </description>
+    </item>
+    
+    <item>
+      <title>Variant Caller</title>
+      <link>https://secure.sbamin.com/howto/variant_calling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://secure.sbamin.com/howto/variant_calling/</guid>
+      <description>&lt;h2 id=&#34;variant-calling-pipeline-glass&#34;&gt;Variant Calling Pipeline - GLASS&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docker.glass-consortium.org&#34;&gt;http://docker.glass-consortium.org&lt;/a&gt; or &lt;a href=&#34;https://github.com/glass-consortium&#34;&gt;https://github.com/glass-consortium&lt;/a&gt;
+git branch: ultraseq&lt;br /&gt;
+&lt;code&gt;v 1.0-b2&lt;/code&gt; | 23-Aug-2016&lt;/p&gt;
+
+&lt;h3 id=&#34;how-to-run-on-nautilus-hpc&#34;&gt;How-to run on Nautilus HPC&lt;/h3&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>header</title>
+      <link>https://secure.sbamin.com/_header/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://secure.sbamin.com/_header/</guid>
+      <description>docker.glass-consortium.org</description>
+    </item>
+    
+  </channel>
+</rss>
