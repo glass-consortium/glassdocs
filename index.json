@@ -1,48 +1,48 @@
 [
 {
-	"uri": "beta.glass-consortium.org/",
+	"uri": "/",
 	"title": "HOME",
 	"tags": [],
 	"description": "",
 	"content": " GLASS Workflows This website will host how-to manuals for running various analysis pipelines for the GLASS consortium. Release version of softwares and manuals will be hosted at docker.glass-consortium.org\n"
 },
 {
-	"uri": "beta.glass-consortium.org/categories/",
+	"uri": "/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "beta.glass-consortium.org/credits/",
+	"uri": "/credits/",
 	"title": "Credits",
 	"tags": [],
 	"description": "data infrastructure committee",
 	"content": " Samir B. Amin Hoon Kim Sahil Seth Ming Tang Roel Verhaak  "
 },
 {
-	"uri": "beta.glass-consortium.org/howto/",
+	"uri": "/howto/",
 	"title": "HowTos",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "beta.glass-consortium.org/tags/",
+	"uri": "/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "beta.glass-consortium.org/howto/variant_calling/",
+	"uri": "/howto/variant_calling/",
 	"title": "Variant Caller",
 	"tags": [],
 	"description": "Variant caller workflow",
 	"content": "Variant Calling Pipeline - GLASS http://docker.glass-consortium.org or https://github.com/glass-consortium git branch: ultraseq\nv 1.0-b2 | 23-Aug-2016\nHow-to run on Nautilus HPC \nInput: bam files cd ~/pipelines/docker_mutect/flowr flowr run x=flowr_ultraseq mytm_bampath=\u0026quot;/scratch/sample_tm.bam\u0026quot; mynr_bampath=\u0026quot;/scratch/sample_nr.bam\u0026quot; sample_name=\u0026quot;sample_tm_nr\u0026quot; execute=TRUE |\u0026amp; tee -a ~/logs/glass_tools/nautilus_run_bam.log  Input: paired end fastq files  IMPORTANT:\n  Only paired end fastq and one each for tumor and normal sample is supported at present. mytm_fq_prefix and mynr_fq_prefix take path prefix until 1.fq and 2.fq for each of tumor and normal bam files, e.g., For mytm_fq_prefix, specify path to paired end fastq as /scratch/TCGA-06-0125-02A-11D-2280-08.1.end where it expects paired end fastq files:  TCGA-06-0125-02A-11D-2280-08.1.end1.fq TCGA-06-0125-02A-11D-2280-08.1.end2.fq  paired end fastq files must end with 1.fq and 2.fq sample_name is important as all output files will carry this name. Ideally, it should incorporate unique id from tumor followed by normal fastq file name.  cd ~/pipelines/docker_mutect/flowr flowr run x=flowr_ultraseq_fq mytm_fq_prefix=\u0026quot;/scratch/TCGA-06-0125-02A-11D-2280-08.1.end\u0026quot; mynr_fq_prefix=\u0026quot;/scratch/TCGA-06-0125-10A-01D-1490-08.6.end\u0026quot; sample_name=\u0026quot;TCGA-06-0125-02Avs10A\u0026quot; execute=TRUE |\u0026amp; tee -a ~/logs/glass_tools/nautilus_run_fqs.log  How-to run docker based pipeline Download and extract GLASS tools tarball and docker image on a docker (v1.10.3 or above) compatible compute node with at least 200 GB disk space, 64GB RAM and 24 VCPUs\nSetup docker image for GLASS tools Supplied docker image: glass_tools_1.0-b2.tar (approx. 5.1 GB) with md5sum of 98ab29f97c110c61715cc6709fc00c79\ndocker load -i glass_tools_1.0-b2.tar docker inspect sbamin/glass_tools:1.0-b2   Image ID: \u0026ldquo;Image\u0026rdquo;:\nsha256:63a3d71e619129ba40ca5719daa5625f665967b837422f7b5a6e29dc28293aeb\n Setup GLASS base directory  GLASS base directory, glassdir will be used as the top-level directory to process raw data using GLASS pipeline and store processed data You can save it at /home/mdauser/glassdir but can be moved elsewhere where you have sufficient disk capacity  Base directory is organized into several subdirectories which should not be modified else docker wrapper script, goglass.sh (below) may show an error   Base directory structure Supplied with GLASS tools tarball - git versioned code for running variant calling pipeline under dockscratch/docker_mutect. It should always point to ultraseq git branch when you execute git status command - If you have received tarball/zip archive of docker_mutect code, it is not a git repository and you already have ultraseq branch - Scripts inside dockscratch/docker_mutect/runner/ requires executable flag (rwx or r-x) - Use supplied GATK bundle at /dockscratch/bundle/ for GATK preprocessing and running MuTect - flowr runs to process and store variant calls will be under dockscratch/flowr/\u0026lt;sample_specific_directory_with_timestamp\u0026gt;/ - log files will be under dockscratch/logs/\nTo-do on client side - Keep tumor and normal bam files under dockscratch/tmp/ directory - Please download academic, non-profit license versions of GATK 3.5 and MuTect 1.1.4 and 1.1.7 and keep extracted jar files exactly as follows:\n``` /dockopt/gatk/GenomeAnalysisTK.jar /dockopt/mutect/muTect-1.1.4.jar /dockopt/mutect/mutect-1.1.7.jar ```  Dry Run: # cd to code repository cd /scratch/rverhaak/glassdir/dockscratch/docker_mutect ./goglass.sh -h ./goglass.sh -p /scratch/rverhaak/glassdir -t sample_tm.bam -n sample_nr.bam -s test_glass_tools -r DRY | tee -a /scratch/rverhaak/glassdir/dockscratch/logs/test_glass_tools.log  Real Run:  change -r DRY to -r GO\n ## remove dry run docker container docker rm test_glass_tools # cd to code repository cd /home/mdauser/docktest/dockscratch/docker_mutect ./goglass.sh -h ./goglass.sh -p /scratch/rverhaak/glassdir -t sample_tm.bam -n sample_nr.bam -s test_glass_tools -r GO | tee -a /scratch/rverhaak/glassdir/dockscratch/logs/test_glass_tools.log  Interactive run You can test docker image by running it interactively as follows:\ndocker run -it --name glass_tools_interactive -v /scratch/rverhaak/glassdir/dockscratch:/scratch -v /scratch/rverhaak/glassdir/dockscratch/docker_mutect:/scratch/docker_mutect:ro -v /scratch/rverhaak/glassdir/dockscratch/bundle:/scratch/bundle -v /scratch/rverhaak/glassdir/dockopt/gatk:/opt/gatk -v /scratch/rverhaak/glassdir/dockopt/mutect:/opt/mutect sbamin/glass_tools:1.0-b2 /bin/bash  PS: You will be running docker container as a root user and can exit to return to your host terminal prompt. To restart interactive mode, do following:\ndocker start glass_tools_interactive docker exec -it glass_tools_interactive /bin/bash  END\n"
 },
 {
-	"uri": "beta.glass-consortium.org/_header/",
+	"uri": "/_header/",
 	"title": "header",
 	"tags": [],
 	"description": "sidebar header",

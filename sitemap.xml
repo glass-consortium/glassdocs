@@ -3,35 +3,35 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>beta.glass-consortium.org/</loc>
+    <loc>/</loc>
     <lastmod>2017-09-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>beta.glass-consortium.org/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>beta.glass-consortium.org/credits/</loc>
+    <loc>/credits/</loc>
   </url>
   
   <url>
-    <loc>beta.glass-consortium.org/howto/</loc>
+    <loc>/howto/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>beta.glass-consortium.org/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>beta.glass-consortium.org/howto/variant_calling/</loc>
+    <loc>/howto/variant_calling/</loc>
   </url>
   
   <url>
-    <loc>beta.glass-consortium.org/_header/</loc>
+    <loc>/_header/</loc>
   </url>
   
 </urlset>

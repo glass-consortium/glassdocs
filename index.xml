@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HOME on GLASS Workflows</title>
-    <link>beta.glass-consortium.org/</link>
+    <link>/</link>
     <description>Recent content in HOME on GLASS Workflows</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 27 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="beta.glass-consortium.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Credits</title>
-      <link>beta.glass-consortium.org/credits/</link>
+      <link>/credits/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>beta.glass-consortium.org/credits/</guid>
+      <guid>/credits/</guid>
       <description> Samir B. Amin Hoon Kim Sahil Seth Ming Tang Roel Verhaak  </description>
     </item>
     
     <item>
       <title>Variant Caller</title>
-      <link>beta.glass-consortium.org/howto/variant_calling/</link>
+      <link>/howto/variant_calling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>beta.glass-consortium.org/howto/variant_calling/</guid>
+      <guid>/howto/variant_calling/</guid>
       <description>&lt;h2 id=&#34;variant-calling-pipeline-glass&#34;&gt;Variant Calling Pipeline - GLASS&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://docker.glass-consortium.org&#34;&gt;http://docker.glass-consortium.org&lt;/a&gt; or &lt;a href=&#34;https://github.com/glass-consortium&#34;&gt;https://github.com/glass-consortium&lt;/a&gt;
@@ -39,10 +39,10 @@ git branch: ultraseq&lt;br /&gt;
     
     <item>
       <title>header</title>
-      <link>beta.glass-consortium.org/_header/</link>
+      <link>/_header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>beta.glass-consortium.org/_header/</guid>
+      <guid>/_header/</guid>
       <description>docker.glass-consortium.org</description>
     </item>
     
