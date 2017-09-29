@@ -3,35 +3,35 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://secure.sbamin.com/</loc>
+    <loc>beta.glass-consortium.org/</loc>
     <lastmod>2017-09-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://secure.sbamin.com/categories/</loc>
+    <loc>beta.glass-consortium.org/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://secure.sbamin.com/credits/</loc>
+    <loc>beta.glass-consortium.org/credits/</loc>
   </url>
   
   <url>
-    <loc>https://secure.sbamin.com/howto/</loc>
+    <loc>beta.glass-consortium.org/howto/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://secure.sbamin.com/tags/</loc>
+    <loc>beta.glass-consortium.org/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://secure.sbamin.com/howto/variant_calling/</loc>
+    <loc>beta.glass-consortium.org/howto/variant_calling/</loc>
   </url>
   
   <url>
-    <loc>https://secure.sbamin.com/_header/</loc>
+    <loc>beta.glass-consortium.org/_header/</loc>
   </url>
   
 </urlset>
