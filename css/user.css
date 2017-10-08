@@ -1,3 +1,4 @@
+/*GLASS LOGO SVG shadow effect*/
 #glogosq { transition: .5s; }
 
 .svgfill {
@@ -13,18 +14,21 @@
     html, body {
         border: 1px solid white;
         height: 99%;
-        page-break-after: avoid;
-        page-break-before: avoid;
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
+        margin: 0px !important;
     }
-	@page { 
-		size: auto ;
+	.printwide { 
+		width: 100% !important; 
+		margin: auto !important;
+		float: none !important;
+		background: transparent; 
 	}
 	div#top-bar {
 		display: none !important;
 	}
-	div#navigation {
+	.no-print, .no-print * {
 		display: none !important;
-		height: 1px;
 	}
 	div#sticky-parent {
 		display: none !important;
