@@ -73,4 +73,4 @@ Disallow: /files/
 User-agent: *
 Disallow: /
 
-Sitemap: docker.glass-consortium.org/sitemap.xml
+Sitemap: http://docker.glass-consortium.org/sitemap.xml
