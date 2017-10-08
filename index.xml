@@ -21,23 +21,6 @@
     </item>
     
     <item>
-      <title>Variant Caller</title>
-      <link>/howto/variant_calling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/howto/variant_calling/</guid>
-      <description>&lt;h2 id=&#34;variant-calling-pipeline-glass&#34;&gt;Variant Calling Pipeline - GLASS&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://docker.glass-consortium.org&#34;&gt;http://docker.glass-consortium.org&lt;/a&gt; or &lt;a href=&#34;https://github.com/glass-consortium&#34;&gt;https://github.com/glass-consortium&lt;/a&gt;
-git branch: ultraseq&lt;br /&gt;
-&lt;code&gt;v 1.0-b2&lt;/code&gt; | 23-Aug-2016&lt;/p&gt;
-
-&lt;h3 id=&#34;how-to-run-on-nautilus-hpc&#34;&gt;How-to run on Nautilus HPC&lt;/h3&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>header</title>
       <link>/_header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

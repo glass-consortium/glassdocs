@@ -8,6 +8,30 @@
   </url>
   
   <url>
+    <loc>/setup/</loc>
+  </url>
+  
+  <url>
+    <loc>/setup/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>/setup/diskmounts/</loc>
+  </url>
+  
+  <url>
+    <loc>/howto/workflows/</loc>
+  </url>
+  
+  <url>
+    <loc>/howto/tidydata/</loc>
+  </url>
+  
+  <url>
+    <loc>/howto/</loc>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <priority>0</priority>
   </url>
@@ -17,17 +41,12 @@
   </url>
   
   <url>
-    <loc>/howto/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/howto/variant_calling/</loc>
+    <loc>/howto/workflows/dna_alignment/</loc>
   </url>
   
   <url>
