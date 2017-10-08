@@ -7,3 +7,41 @@
 .svgfill:hover {
 	-webkit-filter: drop-shadow( 5px 5px 25px #ffff00 ); 
     		filter: drop-shadow( 5px 5px 25px #ffff00 ); }
+
+/*cleanup print format*/
+@media print {
+    html, body {
+        border: 1px solid white;
+        height: 99%;
+        page-break-after: avoid;
+        page-break-before: avoid;
+    }
+	@page { 
+		size: auto ;
+	}
+	div#top-bar {
+		display: none !important;
+	}
+	div#navigation {
+		display: none !important;
+		height: 1px;
+	}
+	div#sticky-parent {
+		display: none !important;
+	}
+	div#sticky-spacer {
+		display: none !important; 
+	}
+	nav#sidebar {
+		display: none !important;
+	}
+ 	div#header-wrapper {
+ 		display: none !important;
+ 	}
+	.footer {
+		display: none !important;
+	} 
+ 	.page-break { 
+	display: none; 
+	}
+}
