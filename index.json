@@ -4,7 +4,7 @@
 	"title": "HOME",
 	"tags": [],
 	"description": "GLASS Workflows",
-	"content": " GLASS Workflows This website hosts how-to manuals for running various analysis pipelines for the GLASS consortium.\n SetUp  \n Setup keystone image   Download and setup docker image: glasstools/keystone\n \n Setup disk mounts  \n HowTo  \n Workflows  \n DNA Alignment  \n Variant Caller  \n RNAseq Analyses  \n TidyData  \n  "
+	"content": " GLASS Workflows This website hosts how-to manuals for running various analysis pipelines for the GLASS consortium.\n SetUp  \n Setup keystone image   Download and setup docker image: glasstools/keystone\n \n Setup disk mounts  \n HowTo  \n Workflows  \n DNA Alignment   Allows whole genome and exome alignment from fastq or legacy bam files.\n \n Variant Caller   Allows variant calling using\u0026hellip;\n  MuTect v1 MuTect v2 1 VarScan2 1  \n RNAseq Analyses   Allows processing of RNAseq data using\u0026hellip;\n  STAR-htseq workflow PRADA  \n TidyData   Backup level 1 realigned bam files Backup level 2 or 3 output files for downstream analyses  \n  "
 },
 {
 	"uri": "/setup/",
