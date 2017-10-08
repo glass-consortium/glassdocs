@@ -14,7 +14,7 @@
 <link rel="manifest" href="/images/manifest.json">
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
-    <title>Workflows :: GLASS Workflows</title>
+    <title>Variant Caller :: GLASS Workflows</title>
     
     
     <link href="/css/nucleus.css?1507478110" rel="stylesheet">
@@ -51,7 +51,7 @@
 <link href="/css/bigfoot-number.css" rel="stylesheet">
 
   </head>
-  <body class="" data-url="/howto/workflows/">
+  <body class="" data-url="/howto/workflows/variant_calling/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -293,7 +293,7 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
     
     <li data-nav-id="/howto/workflows/" title="Workflows" class="dd-item 
         parent
-        active
+        
         
         ">
       <a href="/howto/workflows/">
@@ -347,8 +347,8 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
   
     
     <li data-nav-id="/howto/workflows/variant_calling/" title="Variant Caller" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/howto/workflows/variant_calling/">
@@ -501,7 +501,7 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" href="https://github.com/glass-consortium/glassdocs/edit/master/content/HowTo/Workflows/_index.md" target="blank">
+                    <a class="github-link" href="https://github.com/glass-consortium/glassdocs/edit/master/content/HowTo/Workflows/Variant_Calling/_index.md" target="blank">
                       <i class="fa fa-code-fork"></i>
                       Edit this page
                     </a>
@@ -530,7 +530,13 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
             
           
           
-            <a href='/'>HOME</a> > <a href='/howto/'>HowTo</a> > Workflows
+            
+            
+          
+          
+            <a href='/'>HOME</a> > <a href='/howto/'>HowTo</a> > <a href='/howto/workflows/'>Workflows</a> > Variant Caller
+          
+         
           
          
           
@@ -542,7 +548,32 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#variant-calling-pipeline-glass">Variant Calling Pipeline - GLASS</a>
+<ul>
+<li><a href="#how-to-run-on-nautilus-hpc">How-to run on Nautilus HPC</a>
+<ul>
+<li><a href="#input-bam-files">Input: bam files</a></li>
+<li><a href="#input-paired-end-fastq-files">Input: paired end fastq files</a></li>
+</ul></li>
+<li><a href="#how-to-run-docker-based-pipeline">How-to run docker based pipeline</a>
+<ul>
+<li><a href="#setup-docker-image-for-glass-tools">Setup docker image for GLASS tools</a></li>
+<li><a href="#setup-glass-base-directory">Setup GLASS base directory</a>
+<ul>
+<li><a href="#base-directory-structure">Base directory structure</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dry-run">Dry Run:</a></li>
+<li><a href="#real-run">Real Run:</a></li>
+<li><a href="#interactive-run">Interactive run</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -554,19 +585,173 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
         
         <div id="body-inner">
           
-            <h1>Workflows</h1>
+            <h1>Variant Caller</h1>
           
 
         
 
 
+<blockquote>
+<p>Allows variant calling using&hellip;</p>
+</blockquote>
+
+<ul>
+<li>MuTect v1</li>
+<li>MuTect v2 <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></li>
+<li>VarScan2 <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></li>
+</ul>
+
 <p></p>
 
+<div class="notices info" ><p>Documentation is work in progress</p>
+</div>
+
+
+<h2 id="variant-calling-pipeline-glass">Variant Calling Pipeline - GLASS</h2>
+
+<p><a href="http://docker.glass-consortium.org">http://docker.glass-consortium.org</a> or <a href="https://github.com/glass-consortium">https://github.com/glass-consortium</a>
+git branch: ultraseq<br />
+<code>v 1.0-b2</code> | 23-Aug-2016</p>
+
+<h3 id="how-to-run-on-nautilus-hpc">How-to run on Nautilus HPC</h3>
+
+<h4 id="input-bam-files">Input: bam files</h4>
+
+<pre><code>cd ~/pipelines/docker_mutect/flowr
+
+flowr run x=flowr_ultraseq mytm_bampath=&quot;/scratch/sample_tm.bam&quot; mynr_bampath=&quot;/scratch/sample_nr.bam&quot; sample_name=&quot;sample_tm_nr&quot; execute=TRUE |&amp; tee -a ~/logs/glass_tools/nautilus_run_bam.log
+</code></pre>
+
+<h4 id="input-paired-end-fastq-files">Input: paired end fastq files</h4>
+
+<blockquote>
+<p>IMPORTANT:</p>
+</blockquote>
+
+<ul>
+<li><strong>Only paired end fastq</strong> and <strong>one each</strong> for tumor and normal sample is supported at present.</li>
+<li><code>mytm_fq_prefix</code> and <code>mynr_fq_prefix</code> take path prefix until <code>1.fq</code> and <code>2.fq</code> for each of tumor and normal bam files, e.g., For <code>mytm_fq_prefix</code>, specify path to paired end fastq as <code>/scratch/TCGA-06-0125-02A-11D-2280-08.1.end</code> where it expects paired end fastq files:
+
 <ol>
-<li>Whole genome and exome alignments</li>
-<li>Variant callig</li>
-<li>RNAseq analyses</li>
+<li>TCGA-06-0125-02A-11D-2280-08.1.end1.fq</li>
+<li>TCGA-06-0125-02A-11D-2280-08.1.end2.fq</li>
+</ol></li>
+<li>paired end fastq files must end with <strong><code>1.fq</code> and <code>2.fq</code></strong></li>
+<li><strong><code>sample_name</code></strong> is important as all output files will carry this name. Ideally, it should incorporate unique id from tumor followed by normal fastq file name.</li>
+</ul>
+
+<pre><code>cd ~/pipelines/docker_mutect/flowr
+
+flowr run x=flowr_ultraseq_fq mytm_fq_prefix=&quot;/scratch/TCGA-06-0125-02A-11D-2280-08.1.end&quot; mynr_fq_prefix=&quot;/scratch/TCGA-06-0125-10A-01D-1490-08.6.end&quot; sample_name=&quot;TCGA-06-0125-02Avs10A&quot; execute=TRUE |&amp; tee -a ~/logs/glass_tools/nautilus_run_fqs.log
+</code></pre>
+
+<hr />
+
+<h3 id="how-to-run-docker-based-pipeline">How-to run docker based pipeline</h3>
+
+<p>Download and extract GLASS tools tarball and docker image on a docker (v1.10.3 or above) compatible compute node with at least 200 GB disk space, 64GB RAM and 24 VCPUs</p>
+
+<hr />
+
+<h4 id="setup-docker-image-for-glass-tools">Setup docker image for GLASS tools</h4>
+
+<p>Supplied docker image: glass_tools_1.0-b2.tar (approx. 5.1 GB) with md5sum of 98ab29f97c110c61715cc6709fc00c79</p>
+
+<pre><code>docker load -i glass_tools_1.0-b2.tar
+docker inspect sbamin/glass_tools:1.0-b2
+</code></pre>
+
+<blockquote>
+<p>Image ID: &ldquo;Image&rdquo;:<br />
+<code>sha256:63a3d71e619129ba40ca5719daa5625f665967b837422f7b5a6e29dc28293aeb</code></p>
+</blockquote>
+
+<hr />
+
+<h4 id="setup-glass-base-directory">Setup GLASS base directory</h4>
+
+<ul>
+<li>GLASS base directory, <code>glassdir</code> will be used as the top-level directory to process raw data using GLASS pipeline and store processed data</li>
+<li>You can save it at <code>/home/mdauser/glassdir</code> but can be moved elsewhere where you have sufficient disk capacity
+
+<ul>
+<li>Base directory is organized into several subdirectories which should not be modified else docker wrapper script, <code>goglass.sh</code> (below) may show an error</li>
+</ul></li>
+</ul>
+
+<h5 id="base-directory-structure">Base directory structure</h5>
+
+<p><strong>Supplied with GLASS tools tarball</strong>
+-   git versioned code for running variant calling pipeline under <code>dockscratch/docker_mutect</code>. It should always point to <code>ultraseq</code> git branch when you execute <code>git status</code> command
+    -   If you have received tarball/zip archive of <code>docker_mutect</code> code, it is not a git repository and you already have <code>ultraseq</code> branch
+-   Scripts inside <code>dockscratch/docker_mutect/runner/</code> requires executable flag (rwx or r-x)
+-   Use supplied GATK bundle at <code>/dockscratch/bundle/</code> for GATK preprocessing and running MuTect
+-   flowr runs to process and store variant calls will be under <code>dockscratch/flowr/&lt;sample_specific_directory_with_timestamp&gt;/</code>
+-   log files will be under <code>dockscratch/logs/</code></p>
+
+<p><strong>To-do on client side</strong>
+-   Keep tumor and normal bam files under <code>dockscratch/tmp/</code> directory
+-   Please download academic, non-profit license versions of GATK 3.5 and MuTect 1.1.4 and 1.1.7 and keep extracted jar files exactly as follows:</p>
+
+<pre><code>```
+/dockopt/gatk/GenomeAnalysisTK.jar
+/dockopt/mutect/muTect-1.1.4.jar
+/dockopt/mutect/mutect-1.1.7.jar
+```
+</code></pre>
+
+<hr />
+
+<h3 id="dry-run">Dry Run:</h3>
+
+<pre><code class="language-bash">
+# cd to code repository
+cd /scratch/rverhaak/glassdir/dockscratch/docker_mutect
+
+./goglass.sh -h
+
+./goglass.sh -p /scratch/rverhaak/glassdir -t sample_tm.bam -n sample_nr.bam -s test_glass_tools -r DRY | tee -a /scratch/rverhaak/glassdir/dockscratch/logs/test_glass_tools.log
+</code></pre>
+
+<h3 id="real-run">Real Run:</h3>
+
+<blockquote>
+<p>change <code>-r DRY</code> to <code>-r GO</code></p>
+</blockquote>
+
+<pre><code class="language-bash">
+## remove dry run docker container
+docker rm test_glass_tools
+
+# cd to code repository
+cd /home/mdauser/docktest/dockscratch/docker_mutect
+
+./goglass.sh -h
+
+./goglass.sh -p /scratch/rverhaak/glassdir -t sample_tm.bam -n sample_nr.bam -s test_glass_tools -r GO | tee -a /scratch/rverhaak/glassdir/dockscratch/logs/test_glass_tools.log
+</code></pre>
+
+<h3 id="interactive-run">Interactive run</h3>
+
+<p>You can test docker image by running it interactively as follows:</p>
+
+<pre><code>docker run -it --name glass_tools_interactive -v /scratch/rverhaak/glassdir/dockscratch:/scratch -v /scratch/rverhaak/glassdir/dockscratch/docker_mutect:/scratch/docker_mutect:ro -v /scratch/rverhaak/glassdir/dockscratch/bundle:/scratch/bundle -v /scratch/rverhaak/glassdir/dockopt/gatk:/opt/gatk -v /scratch/rverhaak/glassdir/dockopt/mutect:/opt/mutect sbamin/glass_tools:1.0-b2 /bin/bash
+</code></pre>
+
+<p>PS: You will be running docker container as a root user and can <code>exit</code> to return to your host terminal prompt. To restart interactive mode, do following:</p>
+
+<pre><code>docker start glass_tools_interactive
+docker exec -it glass_tools_interactive /bin/bash
+</code></pre>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Provides snvs, indels and germline calls
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
+</div>
 
 <footer class=" footline" >
 	
@@ -705,6 +890,7 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
             
                 
                     
+                    
                 
                 
 
@@ -712,6 +898,28 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -735,25 +943,6 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
             
         
         
@@ -761,10 +950,10 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
 
 
         
-            <a class="nav nav-prev" href="/howto/" title="HowTo"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/howto/workflows/dna_alignment/" title="DNA Alignment"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/howto/workflows/dna_alignment/" title="DNA Alignment" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/howto/workflows/rnaseq/" title="RNAseq Analyses" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

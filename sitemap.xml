@@ -24,7 +24,19 @@
   </url>
   
   <url>
+    <loc>/howto/workflows/dna_alignment/</loc>
+  </url>
+  
+  <url>
     <loc>/howto/tidydata/</loc>
+  </url>
+  
+  <url>
+    <loc>/howto/workflows/variant_calling/</loc>
+  </url>
+  
+  <url>
+    <loc>/howto/workflows/rnaseq/</loc>
   </url>
   
   <url>
@@ -43,10 +55,6 @@
   <url>
     <loc>/tags/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/howto/workflows/dna_alignment/</loc>
   </url>
   
   <url>
