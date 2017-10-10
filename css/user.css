@@ -1,4 +1,13 @@
 /*GLASS LOGO SVG shadow effect*/
+#header-wrapper, .searchbox {
+	background: #322A38 ;
+	border-bottom: 4px solid #fff ;
+}
+
+.searchbox {
+	border: 1px solid #fff ;
+}
+
 #glogosq { transition: .5s; }
 
 .svgfill {
@@ -6,8 +15,8 @@
     		filter: drop-shadow( 2px 2px 2px #fff ); }
 
 .svgfill:hover {
-	-webkit-filter: drop-shadow( 5px 5px 25px #ffff00 ); 
-    		filter: drop-shadow( 5px 5px 25px #ffff00 ); }
+	-webkit-filter: drop-shadow( 5px 5px 25px #fff ); 
+    		filter: drop-shadow( 5px 5px 25px #fff ); }
 
 /*cleanup print format*/
 @media print {
