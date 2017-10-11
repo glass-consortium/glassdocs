@@ -11,8 +11,8 @@
 #glogosq { transition: .5s; }
 
 .svgfill {
-	-webkit-filter: drop-shadow( 2px 2px 2px #fff ); 
-    		filter: drop-shadow( 2px 2px 2px #fff ); }
+	-webkit-filter: drop-shadow( 0px 0px 1px #fff ); 
+    		filter: drop-shadow( 0px 0px 1px #fff ); }
 
 .svgfill:hover {
 	-webkit-filter: drop-shadow( 5px 5px 25px #fff ); 
