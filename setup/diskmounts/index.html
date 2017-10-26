@@ -14,20 +14,22 @@
 <link rel="manifest" href="/images/manifest.json">
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
+
+
     <title>Setup disk mounts :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1507686434" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1507686434" rel="stylesheet">
-    <link href="/css/hybrid.css?1507686434" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1507686434" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1507686434" rel="stylesheet">
-    <link href="/css/auto-complete.css?1507686434" rel="stylesheet">
-    <link href="/css/theme.css?1507686434" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1507686434" rel="stylesheet">
+    <link href="/css/nucleus.css?1509003529" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1509003529" rel="stylesheet">
+    <link href="/css/hybrid.css?1509003529" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1509003529" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1509003529" rel="stylesheet">
+    <link href="/css/auto-complete.css?1509003529" rel="stylesheet">
+    <link href="/css/theme.css?1509003529" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1509003529" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1507686434"></script>
+    <script src="/js/jquery-2.x.min.js?1509003529"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -35,8 +37,7 @@
       }
       
     </style>
-    <link href="/css/user.css" rel="stylesheet">
-
+    
 <script src="/js/bigfoot.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     var bigfoot = $.bigfoot(
@@ -49,6 +50,13 @@
     );
 </script>
 <link href="/css/bigfoot-number.css" rel="stylesheet">
+
+
+<link href="/css/academicicons.css" rel="stylesheet">
+<link href="/css/dockerfont.css" rel="stylesheet">
+
+
+<link href="/css/user.css" rel="stylesheet">
 
   </head>
   <body class="" data-url="/setup/diskmounts/">
@@ -151,14 +159,14 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1507686434"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1507686434"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1509003529"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1509003529"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1507686434"></script>
+<script type="text/javascript" src="/js/search.js?1509003529"></script>
 
     
   </div>
@@ -174,13 +182,13 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
  
   
     
-    <li data-nav-id="/setup/" title="SetUp" class="dd-item 
+    <li data-nav-id="/setup/" title=" Set Up" class="dd-item 
         parent
         
         
         ">
       <a href="/setup/">
-          <b>1. </b>SetUp
+          <i class="fa fa-docker fa-2x aln-bottom"></i> Set Up
           
             <i class="fa fa-check read-icon"></i>
           
@@ -262,13 +270,13 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
  
   
     
-    <li data-nav-id="/howto/" title="HowTo" class="dd-item 
+    <li data-nav-id="/howto/" title=" How To" class="dd-item 
         
         
         
         ">
       <a href="/howto/">
-          <b>2. </b>HowTo
+          <i class="fa fa-gears fa-2x aln-bottom"></i> How To
           
             <i class="fa fa-check read-icon"></i>
           
@@ -534,7 +542,7 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
             
           
           
-            <a href='/'>HOME</a> > <a href='/setup/'>SetUp</a> > Setup disk mounts
+            <a href='/'>HOME</a> > <a href='/setup/'> Set Up</a> > Setup disk mounts
           
          
           
@@ -578,19 +586,14 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
         
 
 
-<blockquote>
-<p>Prepare disk mounts on the host system for use with docker containers</p>
-</blockquote>
+<p>
 
-<div class="notices info" ><p>Documentation is work in progress</p>
-</div>
+<span class="fa fa-database aln-middle"  style="font-size:2rem" aria-hidden="true"></span>
 
+
+ Prepare disk mounts on the host system for use with docker containers</p>
 
 <p></p>
-
-<div class="notices info" ><p>Documentation is work in progress</p>
-</div>
-
 
 <h4 id="with-data-mounts-and-host-user-group-mapping">With data mounts and host user:group mapping</h4>
 
@@ -808,7 +811,7 @@ docker run -e HOSTUSER=$USER -e HOSTGROUP=verhaak-lab -e HOSTUSERID=$UID -e HOST
             <a class="nav nav-prev" href="/setup/docker/" title="Setup keystone image"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/howto/" title="HowTo" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/howto/" title=" How To" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -817,20 +820,20 @@ docker run -e HOSTUSER=$USER -e HOSTGROUP=verhaak-lab -e HOSTUSERID=$UID -e HOST
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1507686434"></script>
-    <script src="/js/perfect-scrollbar.min.js?1507686434"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1507686434"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1507686434"></script>
-    <script src="/js/featherlight.min.js?1507686434"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1507686434"></script>
-    <script src="/js/highlight.pack.js?1507686434"></script>
+    <script src="/js/clipboard.min.js?1509003529"></script>
+    <script src="/js/perfect-scrollbar.min.js?1509003529"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1509003529"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1509003529"></script>
+    <script src="/js/featherlight.min.js?1509003529"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1509003529"></script>
+    <script src="/js/highlight.pack.js?1509003529"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1507686434"></script>
-    <script src="/js/learn.js?1507686434"></script>
-    <script src="/js/hugo-learn.js?1507686434"></script>
+    <script src="/js/modernizr.custom.71422.js?1509003529"></script>
+    <script src="/js/learn.js?1509003529"></script>
+    <script src="/js/hugo-learn.js?1509003529"></script>
 
-    <link href="/mermaid/mermaid.css?1507686434" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1507686434"></script>
+    <link href="/mermaid/mermaid.css?1509003529" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1509003529"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

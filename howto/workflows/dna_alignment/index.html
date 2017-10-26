@@ -14,20 +14,22 @@
 <link rel="manifest" href="/images/manifest.json">
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
+
+
     <title>DNA Alignment :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1507686434" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1507686434" rel="stylesheet">
-    <link href="/css/hybrid.css?1507686434" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1507686434" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1507686434" rel="stylesheet">
-    <link href="/css/auto-complete.css?1507686434" rel="stylesheet">
-    <link href="/css/theme.css?1507686434" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1507686434" rel="stylesheet">
+    <link href="/css/nucleus.css?1509003529" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1509003529" rel="stylesheet">
+    <link href="/css/hybrid.css?1509003529" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1509003529" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1509003529" rel="stylesheet">
+    <link href="/css/auto-complete.css?1509003529" rel="stylesheet">
+    <link href="/css/theme.css?1509003529" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1509003529" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1507686434"></script>
+    <script src="/js/jquery-2.x.min.js?1509003529"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -35,8 +37,7 @@
       }
       
     </style>
-    <link href="/css/user.css" rel="stylesheet">
-
+    
 <script src="/js/bigfoot.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     var bigfoot = $.bigfoot(
@@ -49,6 +50,13 @@
     );
 </script>
 <link href="/css/bigfoot-number.css" rel="stylesheet">
+
+
+<link href="/css/academicicons.css" rel="stylesheet">
+<link href="/css/dockerfont.css" rel="stylesheet">
+
+
+<link href="/css/user.css" rel="stylesheet">
 
   </head>
   <body class="" data-url="/howto/workflows/dna_alignment/">
@@ -151,14 +159,14 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1507686434"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1507686434"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1509003529"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1509003529"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1507686434"></script>
+<script type="text/javascript" src="/js/search.js?1509003529"></script>
 
     
   </div>
@@ -174,13 +182,13 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
  
   
     
-    <li data-nav-id="/setup/" title="SetUp" class="dd-item 
+    <li data-nav-id="/setup/" title=" Set Up" class="dd-item 
         
         
         
         ">
       <a href="/setup/">
-          <b>1. </b>SetUp
+          <i class="fa fa-docker fa-2x aln-bottom"></i> Set Up
           
             <i class="fa fa-check read-icon"></i>
           
@@ -262,13 +270,13 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
  
   
     
-    <li data-nav-id="/howto/" title="HowTo" class="dd-item 
+    <li data-nav-id="/howto/" title=" How To" class="dd-item 
         parent
         
         
         ">
       <a href="/howto/">
-          <b>2. </b>HowTo
+          <i class="fa fa-gears fa-2x aln-bottom"></i> How To
           
             <i class="fa fa-check read-icon"></i>
           
@@ -538,7 +546,7 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
             
           
           
-            <a href='/'>HOME</a> > <a href='/howto/'>HowTo</a> > <a href='/howto/workflows/'>Workflows</a> > DNA Alignment
+            <a href='/'>HOME</a> > <a href='/howto/'> How To</a> > <a href='/howto/workflows/'>Workflows</a> > DNA Alignment
           
          
           
@@ -558,22 +566,8 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li><a href="#input-bam-files">Input: bam files</a></li>
-<li><a href="#input-paired-end-fastq-files">Input: paired end fastq files</a></li>
-</ul></li>
-<li><a href="#how-to-run-docker-based-pipeline">How-to run docker based pipeline</a>
-<ul>
-<li><a href="#setup-docker-image-for-glass-tools">Setup docker image for GLASS tools</a></li>
-<li><a href="#setup-glass-base-directory">Setup GLASS base directory</a>
-<ul>
-<li><a href="#base-directory-structure">Base directory structure</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#dry-run">Dry Run:</a></li>
-<li><a href="#real-run">Real Run:</a></li>
-<li><a href="#interactive-run">Interactive run</a></li>
+<li><a href="#how-to-run-docker-based-pipeline">How-to run docker based pipeline</a></li>
+<li><a href="#to-run-workflow">To run workflow:</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -601,140 +595,51 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
 
 <p></p>
 
-<div class="notices info" ><p>Documentation is work in progress</p>
-</div>
-
-
-<h4 id="input-bam-files">Input: bam files</h4>
-
-<pre><code>cd ~/pipelines/docker_mutect/flowr
-
-flowr run x=flowr_ultraseq mytm_bampath=&quot;/scratch/sample_tm.bam&quot; mynr_bampath=&quot;/scratch/sample_nr.bam&quot; sample_name=&quot;sample_tm_nr&quot; execute=TRUE |&amp; tee -a ~/logs/glass_tools/nautilus_run_bam.log
-</code></pre>
-
-<h4 id="input-paired-end-fastq-files">Input: paired end fastq files</h4>
-
-<blockquote>
-<p>IMPORTANT:</p>
-</blockquote>
-
-<ul>
-<li><strong>Only paired end fastq</strong> and <strong>one each</strong> for tumor and normal sample is supported at present.</li>
-<li><code>mytm_fq_prefix</code> and <code>mynr_fq_prefix</code> take path prefix until <code>1.fq</code> and <code>2.fq</code> for each of tumor and normal bam files, e.g., For <code>mytm_fq_prefix</code>, specify path to paired end fastq as <code>/scratch/TCGA-06-0125-02A-11D-2280-08.1.end</code> where it expects paired end fastq files:
-
-<ol>
-<li>TCGA-06-0125-02A-11D-2280-08.1.end1.fq</li>
-<li>TCGA-06-0125-02A-11D-2280-08.1.end2.fq</li>
-</ol></li>
-<li>paired end fastq files must end with <strong><code>1.fq</code> and <code>2.fq</code></strong></li>
-<li><strong><code>sample_name</code></strong> is important as all output files will carry this name. Ideally, it should incorporate unique id from tumor followed by normal fastq file name.</li>
-</ul>
-
-<pre><code>cd ~/pipelines/docker_mutect/flowr
-
-flowr run x=flowr_ultraseq_fq mytm_fq_prefix=&quot;/scratch/TCGA-06-0125-02A-11D-2280-08.1.end&quot; mynr_fq_prefix=&quot;/scratch/TCGA-06-0125-10A-01D-1490-08.6.end&quot; sample_name=&quot;TCGA-06-0125-02Avs10A&quot; execute=TRUE |&amp; tee -a ~/logs/glass_tools/nautilus_run_fqs.log
-</code></pre>
-
-<hr />
-
 <h3 id="how-to-run-docker-based-pipeline">How-to run docker based pipeline</h3>
 
-<p>Download and extract GLASS tools tarball and docker image on a docker (v1.10.3 or above) compatible compute node with at least 200 GB disk space, 64GB RAM and 24 VCPUs</p>
+<p>Helper script: <code>disk1/glasscore/configs/bin/glass_fastq_align</code></p>
 
-<hr />
+<p>Organize fastq or bam files and matching <code>mapping_table.tsv</code> file, e.g., for sampleX, create folder named sampleX under <em>/mnt/disk2/glassdata/inputs/fqs/</em> and then place <code>sampleX_mapping_table.tsv</code> file at <em>/mnt/disk2/glassdata/inputs/fqs/sampleX/sampleX_mapping_table.tsv</em></p>
 
-<h4 id="setup-docker-image-for-glass-tools">Setup docker image for GLASS tools</h4>
+<p>Filename of fastq files and not the full path should be written in the mapping table. Check out example mapping table at <a href="https://gist.github.com/sbamin/d86c9cd0b522a205fd128d266910a7cf">https://gist.github.com/sbamin/d86c9cd0b522a205fd128d266910a7cf</a></p>
 
-<p>Supplied docker image: glass_tools_1.0-b2.tar (approx. 5.1 GB) with md5sum of 98ab29f97c110c61715cc6709fc00c79</p>
+<p><code>glass_fastq_align --help</code> has following arguments to run alignment workflow. As long as data organization is preserved, only unique sample_barcode argument, <code>-s</code> is mandatory to run this workflow.</p>
 
-<pre><code>docker load -i glass_tools_1.0-b2.tar
-docker inspect sbamin/glass_tools:1.0-b2
+<pre><code class="language-bash">Usage: ${0##*/} -s &lt;UNIQUE SAMPLE NAME&gt; -a &lt;FILENAME OF FASTQ MAPPING TABLE&gt; -m &lt;RUN MODE (WGS|WES; default: WGS)&gt; -t &lt;RUN TYPE (DRY|GO; default: DRY)&gt; -d1 &lt;PATH TO DISK1 (default:/mnt/disk1)&gt; -d1 &lt;PATH TO DISK2 (default:/mnt/disk2)&gt; | tee -a ~/glass_run.log
+
+    -h  display this help and exit
+    -s  unique sample_barcode (Required: This will be used to annotate bam headers and name output files)
+    -a  filename (and not full path) of fastq mapping table. 
+        Place this file under /mnt/disk2/glassdata/inputs/fqs/sample_barcode/ path
+        default is &lt;sample_barcode&gt;_mapping_table.tsv
+
+    -m  run mode: WGS or WES (default: WGS; select WES if input fastqs are from whole exome or other target capture based assay)
+    -t  run type: DRY or GO (default: DRY; GO will execute actual pipeline on a compute node)
+    -r  path to reference data disk1 base (default: /mnt/disk1)
+    -e  path to storage data disk2 base (default: /mnt/disk2)
+        Read http://docker.glass-consortium.org on setting up disk mounts by downloading pre-built reference datasets.
+
 </code></pre>
 
-<blockquote>
-<p>Image ID: &ldquo;Image&rdquo;:<br />
-<code>sha256:63a3d71e619129ba40ca5719daa5625f665967b837422f7b5a6e29dc28293aeb</code></p>
-</blockquote>
+<h3 id="to-run-workflow">To run workflow:</h3>
 
-<hr />
+<p>Assuming disk1 and disk2 are mounted at /mnt/, run typical dry run for WGS derived fastq for sample X using:</p>
 
-<h4 id="setup-glass-base-directory">Setup GLASS base directory</h4>
-
-<ul>
-<li>GLASS base directory, <code>glassdir</code> will be used as the top-level directory to process raw data using GLASS pipeline and store processed data</li>
-<li>You can save it at <code>/home/mdauser/glassdir</code> but can be moved elsewhere where you have sufficient disk capacity
-
-<ul>
-<li>Base directory is organized into several subdirectories which should not be modified else docker wrapper script, <code>goglass.sh</code> (below) may show an error</li>
-</ul></li>
-</ul>
-
-<h5 id="base-directory-structure">Base directory structure</h5>
-
-<p><strong>Supplied with GLASS tools tarball</strong>
--   git versioned code for running variant calling pipeline under <code>dockscratch/docker_mutect</code>. It should always point to <code>ultraseq</code> git branch when you execute <code>git status</code> command
-    -   If you have received tarball/zip archive of <code>docker_mutect</code> code, it is not a git repository and you already have <code>ultraseq</code> branch
--   Scripts inside <code>dockscratch/docker_mutect/runner/</code> requires executable flag (rwx or r-x)
--   Use supplied GATK bundle at <code>/dockscratch/bundle/</code> for GATK preprocessing and running MuTect
--   flowr runs to process and store variant calls will be under <code>dockscratch/flowr/&lt;sample_specific_directory_with_timestamp&gt;/</code>
--   log files will be under <code>dockscratch/logs/</code></p>
-
-<p><strong>To-do on client side</strong>
--   Keep tumor and normal bam files under <code>dockscratch/tmp/</code> directory
--   Please download academic, non-profit license versions of GATK 3.5 and MuTect 1.1.4 and 1.1.7 and keep extracted jar files exactly as follows:</p>
-
-<pre><code>```
-/dockopt/gatk/GenomeAnalysisTK.jar
-/dockopt/mutect/muTect-1.1.4.jar
-/dockopt/mutect/mutect-1.1.7.jar
-```
+<pre><code>${0##*/} -s sampleX_barcode -a sampleX_mapping_table.tsv | tee -a ~/glass_run.log
 </code></pre>
 
-<hr />
+<p>To switch to whole exome derived fastq files, do:</p>
 
-<h3 id="dry-run">Dry Run:</h3>
-
-<pre><code class="language-bash">
-# cd to code repository
-cd /scratch/rverhaak/glassdir/dockscratch/docker_mutect
-
-./goglass.sh -h
-
-./goglass.sh -p /scratch/rverhaak/glassdir -t sample_tm.bam -n sample_nr.bam -s test_glass_tools -r DRY | tee -a /scratch/rverhaak/glassdir/dockscratch/logs/test_glass_tools.log
+<pre><code>${0##*/} -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES | tee -a ~/glass_run.log
 </code></pre>
 
-<h3 id="real-run">Real Run:</h3>
+<p>To switch from dry run to an actual run on a compute node, add -t GO argument, e.g.,:</p>
 
-<blockquote>
-<p>change <code>-r DRY</code> to <code>-r GO</code></p>
-</blockquote>
-
-<pre><code class="language-bash">
-## remove dry run docker container
-docker rm test_glass_tools
-
-# cd to code repository
-cd /home/mdauser/docktest/dockscratch/docker_mutect
-
-./goglass.sh -h
-
-./goglass.sh -p /scratch/rverhaak/glassdir -t sample_tm.bam -n sample_nr.bam -s test_glass_tools -r GO | tee -a /scratch/rverhaak/glassdir/dockscratch/logs/test_glass_tools.log
+<pre><code>${0##*/} -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES -t GO | tee -a ~/glass_run.log
 </code></pre>
 
-<h3 id="interactive-run">Interactive run</h3>
-
-<p>You can test docker image by running it interactively as follows:</p>
-
-<pre><code>docker run -it --name glass_tools_interactive -v /scratch/rverhaak/glassdir/dockscratch:/scratch -v /scratch/rverhaak/glassdir/dockscratch/docker_mutect:/scratch/docker_mutect:ro -v /scratch/rverhaak/glassdir/dockscratch/bundle:/scratch/bundle -v /scratch/rverhaak/glassdir/dockopt/gatk:/opt/gatk -v /scratch/rverhaak/glassdir/dockopt/mutect:/opt/mutect sbamin/glass_tools:1.0-b2 /bin/bash
-</code></pre>
-
-<p>PS: You will be running docker container as a root user and can <code>exit</code> to return to your host terminal prompt. To restart interactive mode, do following:</p>
-
-<pre><code>docker start glass_tools_interactive
-docker exec -it glass_tools_interactive /bin/bash
-</code></pre>
-
-<p>END</p>
+<p>PS: In all cases, raw fastq files and related mapping file must be under
+<code>/mnt/disk2/glassdata/inputs/fqs/&lt;sample_barcode&gt;/</code> directory</p>
 <div class="page-break"></div>
 <footer class=" footline" >
 	
@@ -943,20 +848,20 @@ docker exec -it glass_tools_interactive /bin/bash
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1507686434"></script>
-    <script src="/js/perfect-scrollbar.min.js?1507686434"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1507686434"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1507686434"></script>
-    <script src="/js/featherlight.min.js?1507686434"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1507686434"></script>
-    <script src="/js/highlight.pack.js?1507686434"></script>
+    <script src="/js/clipboard.min.js?1509003529"></script>
+    <script src="/js/perfect-scrollbar.min.js?1509003529"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1509003529"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1509003529"></script>
+    <script src="/js/featherlight.min.js?1509003529"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1509003529"></script>
+    <script src="/js/highlight.pack.js?1509003529"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1507686434"></script>
-    <script src="/js/learn.js?1507686434"></script>
-    <script src="/js/hugo-learn.js?1507686434"></script>
+    <script src="/js/modernizr.custom.71422.js?1509003529"></script>
+    <script src="/js/learn.js?1509003529"></script>
+    <script src="/js/hugo-learn.js?1509003529"></script>
 
-    <link href="/mermaid/mermaid.css?1507686434" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1507686434"></script>
+    <link href="/mermaid/mermaid.css?1509003529" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1509003529"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -14,20 +14,22 @@
 <link rel="manifest" href="/images/manifest.json">
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
+
+
     <title>Setup keystone image :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1507686434" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1507686434" rel="stylesheet">
-    <link href="/css/hybrid.css?1507686434" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1507686434" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1507686434" rel="stylesheet">
-    <link href="/css/auto-complete.css?1507686434" rel="stylesheet">
-    <link href="/css/theme.css?1507686434" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1507686434" rel="stylesheet">
+    <link href="/css/nucleus.css?1509003529" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1509003529" rel="stylesheet">
+    <link href="/css/hybrid.css?1509003529" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1509003529" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1509003529" rel="stylesheet">
+    <link href="/css/auto-complete.css?1509003529" rel="stylesheet">
+    <link href="/css/theme.css?1509003529" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1509003529" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1507686434"></script>
+    <script src="/js/jquery-2.x.min.js?1509003529"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -35,8 +37,7 @@
       }
       
     </style>
-    <link href="/css/user.css" rel="stylesheet">
-
+    
 <script src="/js/bigfoot.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     var bigfoot = $.bigfoot(
@@ -49,6 +50,13 @@
     );
 </script>
 <link href="/css/bigfoot-number.css" rel="stylesheet">
+
+
+<link href="/css/academicicons.css" rel="stylesheet">
+<link href="/css/dockerfont.css" rel="stylesheet">
+
+
+<link href="/css/user.css" rel="stylesheet">
 
   </head>
   <body class="" data-url="/setup/docker/">
@@ -151,14 +159,14 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1507686434"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1507686434"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1509003529"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1509003529"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1507686434"></script>
+<script type="text/javascript" src="/js/search.js?1509003529"></script>
 
     
   </div>
@@ -174,13 +182,13 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
  
   
     
-    <li data-nav-id="/setup/" title="SetUp" class="dd-item 
+    <li data-nav-id="/setup/" title=" Set Up" class="dd-item 
         parent
         
         
         ">
       <a href="/setup/">
-          <b>1. </b>SetUp
+          <i class="fa fa-docker fa-2x aln-bottom"></i> Set Up
           
             <i class="fa fa-check read-icon"></i>
           
@@ -262,13 +270,13 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
  
   
     
-    <li data-nav-id="/howto/" title="HowTo" class="dd-item 
+    <li data-nav-id="/howto/" title=" How To" class="dd-item 
         
         
         
         ">
       <a href="/howto/">
-          <b>2. </b>HowTo
+          <i class="fa fa-gears fa-2x aln-bottom"></i> How To
           
             <i class="fa fa-check read-icon"></i>
           
@@ -534,7 +542,7 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
             
           
           
-            <a href='/'>HOME</a> > <a href='/setup/'>SetUp</a> > Setup keystone image
+            <a href='/'>HOME</a> > <a href='/setup/'> Set Up</a> > Setup keystone image
           
          
           
@@ -556,14 +564,10 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
 <li><a href="#test-run">Test run</a>
 <ul>
 <li><a href="#with-data-mounts-and-host-user-group-mapping">With data mounts and host user:group mapping</a></li>
-</ul></li>
-<li><a href="#rationale-for-host-user-mapping">Rationale for host user mapping:</a>
-<ul>
 <li><a href="#run-specific-tools">Run specific tools</a></li>
 <li><a href="#without-data-mounts">Without data mounts</a></li>
 <li><a href="#disable-usermapping">disable usermapping</a></li>
 </ul></li>
-<li><a href="#build-details">Build details</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -585,32 +589,32 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
         
 
 
-<blockquote>
-<p>Download and setup docker image: <em>glasstools/keystone</em></p>
-</blockquote>
+<p>
+
+<span class="fa fa-docker aln-middle"  style="font-size:3rem" aria-hidden="true"></span>
+
+
+ Download and setup docker image: <em>glasstools/keystone</em></p>
 
 <p></p>
 
 <h3 id="docker-image">Docker image:</h3>
 
-<pre><code>docker pull glasstools/keystone
+<pre><code class="language-sh">docker pull glasstools/keystone
 # OR
-docker pull glasstools/keystone:1.1.2p3
+docker pull glasstools/keystone:1.2.2
 </code></pre>
 
-<p><a href="https://hub.docker.com/r/glasstools/keystone">https://hub.docker.com/r/glasstools/keystone</a></p>
+<p>
+
+<span class="fa fa-docker aln-middle"   aria-hidden="true"></span>
+
+
+ <a href="https://hub.docker.com/r/glasstools/keystone">https://hub.docker.com/r/glasstools/keystone</a></p>
 
 <h3 id="test-run">Test run</h3>
 
 <h4 id="with-data-mounts-and-host-user-group-mapping">With data mounts and host user:group mapping</h4>
-
-<h3 id="rationale-for-host-user-mapping">Rationale for host user mapping:</h3>
-
-<ul>
-<li>By default, docker container will always run as a non-root <code>glassuser</code>. When you enable host user mapping (recommended), docker container will create on-the-fly new user without any root privilege and map its UID and GID to that of current user running <code>docker run</code> or as defined via <code>e HOSTUSER=</code> argument.</li>
-<li>With valid user mapping to a non-root, regular user on the host system, docker container will be able to read-write files only at mounted host data volumes under <code>disk1/glasscore</code>, <code>disk1/scratch</code> and <code>disk2/glassdata</code>. This is true as long as host user has permissions to write and recurse in directories at these locations.</li>
-<li>Such host user mapping restricts privilege escalation while running docker container which can otherwise adversely impact host file system. Read more at <a href="https://docs.docker.com/engine/security/security/">https://docs.docker.com/engine/security/security/</a> and <a href="https://security.stackexchange.com/a/153016">https://security.stackexchange.com/a/153016</a></li>
-</ul>
 
 <pre><code class="language-sh">export GLASSMOUNTS=&quot;/fastscratch/foo/dockvol/glass_tools/glass_mounts&quot;
 
@@ -681,36 +685,7 @@ drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 glassdata
 drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 scratch
 </code></pre>
 
-<hr />
-
-<h3 id="build-details">Build details</h3>
-
-<p>7-Oct-2017: Image was built locally on jax helix-dev linux box using following command</p>
-
-<p>Dockerfile and related code: <a href="https://gitlab.com/glass_consortium/glass_tools">https://gitlab.com/glass_consortium/glass_tools</a></p>
-
-<blockquote>
-<p>Code will be available in public domain upon public release of docker image in early 2018. Feel free to contact us if you like to test it earlier.</p>
-</blockquote>
-
-<pre><code class="language-sh">ssh helix180
-cd /fastscratch/foo/dockvol
-git clone git@gitlab.com:glass_consortium/glass_tools.git
-cd glass_tools
-
-docker build --tag glasstools/keystone:1.1.2p3 . | tee -a built_image/patch3/build_v1.1.2p3.log
-gzip built_image/patch3/build_v1.1.2p3.log
-
-## tag image for push to docker hub
-## see docker_hub_push.md for details
-docker tag -f bba77a9f9858 glasstools/keystone:latest
-
-## save docker image locally
-docker save -o glasstools_keystone_v1.1.2p3.tar bba77a9f9858 &amp;&amp; md5sum glasstools_keystone_v1.1.2p3.tar &gt; built_image/patch3/glasstools_keystone_v1.1.2p3.tar.md5 &amp;&amp; docker inspect bba77a9f9858 | tee -a built_image/patch3/glasstools_keystone_v1.1.2p3.tar_image_id_bba77a9f9858_inspect.log
-
-## ignore built docker image in git versioning: too big even for lfs!
-echo &quot;glasstools_keystone_v1.1.2p3.tar&quot; &gt;&gt; .gitignore
-</code></pre>
+<p>end</p>
 <div class="page-break"></div>
 <footer class=" footline" >
 	
@@ -903,7 +878,7 @@ echo &quot;glasstools_keystone_v1.1.2p3.tar&quot; &gt;&gt; .gitignore
 
 
         
-            <a class="nav nav-prev" href="/setup/" title="SetUp"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/setup/" title=" Set Up"> <i class="fa fa-chevron-left"></i></a>
         
         
             <a class="nav nav-next" href="/setup/diskmounts/" title="Setup disk mounts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -915,20 +890,20 @@ echo &quot;glasstools_keystone_v1.1.2p3.tar&quot; &gt;&gt; .gitignore
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1507686434"></script>
-    <script src="/js/perfect-scrollbar.min.js?1507686434"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1507686434"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1507686434"></script>
-    <script src="/js/featherlight.min.js?1507686434"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1507686434"></script>
-    <script src="/js/highlight.pack.js?1507686434"></script>
+    <script src="/js/clipboard.min.js?1509003529"></script>
+    <script src="/js/perfect-scrollbar.min.js?1509003529"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1509003529"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1509003529"></script>
+    <script src="/js/featherlight.min.js?1509003529"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1509003529"></script>
+    <script src="/js/highlight.pack.js?1509003529"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1507686434"></script>
-    <script src="/js/learn.js?1507686434"></script>
-    <script src="/js/hugo-learn.js?1507686434"></script>
+    <script src="/js/modernizr.custom.71422.js?1509003529"></script>
+    <script src="/js/learn.js?1509003529"></script>
+    <script src="/js/hugo-learn.js?1509003529"></script>
 
-    <link href="/mermaid/mermaid.css?1507686434" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1507686434"></script>
+    <link href="/mermaid/mermaid.css?1509003529" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1509003529"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

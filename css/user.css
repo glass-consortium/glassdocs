@@ -18,6 +18,15 @@
 	-webkit-filter: drop-shadow( 5px 5px 25px #fff ); 
     		filter: drop-shadow( 5px 5px 25px #fff ); }
 
+.aln-bottom {
+	vertical-align: bottom;
+}
+
+.aln-middle {
+	vertical-align: middle;
+}
+
+/*############################################################*/
 /*cleanup print format*/
 @media print {
     html, body {
