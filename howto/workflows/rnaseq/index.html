@@ -19,17 +19,17 @@
     <title>RNAseq Analyses :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1509003529" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1509003529" rel="stylesheet">
-    <link href="/css/hybrid.css?1509003529" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1509003529" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1509003529" rel="stylesheet">
-    <link href="/css/auto-complete.css?1509003529" rel="stylesheet">
-    <link href="/css/theme.css?1509003529" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1509003529" rel="stylesheet">
+    <link href="/css/nucleus.css?1509027031" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1509027031" rel="stylesheet">
+    <link href="/css/hybrid.css?1509027031" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1509027031" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1509027031" rel="stylesheet">
+    <link href="/css/auto-complete.css?1509027031" rel="stylesheet">
+    <link href="/css/theme.css?1509027031" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1509027031" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1509003529"></script>
+    <script src="/js/jquery-2.x.min.js?1509027031"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -159,14 +159,14 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1509003529"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1509003529"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1509027031"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1509027031"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1509003529"></script>
+<script type="text/javascript" src="/js/search.js?1509027031"></script>
 
     
   </div>
@@ -560,7 +560,21 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#setup">Setup</a>
+<ul>
+<li><a href="#dry-run">Dry Run</a></li>
+<li><a href="#actual-run">Actual Run:</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -583,14 +597,53 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
 </blockquote>
 
 <ul>
-<li>STAR-htseq workflow</li>
+<li>STAR-htseq</li>
 <li>PRADA</li>
 </ul>
 
 <p></p>
 
-<div class="notices info" ><p>Documentation is work in progress</p>
-</div>
+<h3 id="setup">Setup</h3>
+
+<ul>
+<li><p>Download and extract GLASS tools tarball and docker image on a docker on a compatible compute node with at least 200 GB disk space, 64GB RAM and 24 VCPUs</p></li>
+
+<li><p><a href="/setup">Setup docker image and disk mounts</a></p></li>
+</ul>
+
+<p><strong>To-do on client side</strong></p>
+
+<ul>
+<li>Organize sample wise RNAseq fastq files under <em>/mnt/disk2/glassdata/inputs/fqs/sampleX/</em></li>
+</ul>
+
+<h4 id="dry-run">Dry Run</h4>
+
+<ul>
+<li><p>Helper script: <code>disk1/glasscore/configs/bin/glass_rnaseq</code> which has similar argument structure as for <a href="/howto/workflows/dna_alignment/#how-to-run-docker-based-pipeline">DNA alignment workflow</a> with following new or updated arguments:</p>
+
+<ul>
+<li><code>-a</code>: filename(s) and not full path of read 1 of sample fastq file</li>
+<li><code>-b</code>: filename(s) and not full path of read 2 of sample fastq file</li>
+<li><code>-m</code>: Run mode can be either <code>STAR</code> or <code>PRADA</code><br /></li>
+</ul></li>
+</ul>
+
+<pre><code class="language-bash"># cd to code repository
+cd /path_to_disk1/glasscore/configs/bin/
+
+## Run STAR-htseq workflow
+./glass_rnaseq -m STAR -a sampleX_read1.fq -b sampleX_read2.fq -s rnaseq_star_sampleX -t DRY | tee -a run.log
+
+## Run PRADA workflow
+./glass_rnaseq -m PRADA -a sampleX_read1.fq -b sampleX_read2.fq -s rnaseq_star_sampleX -t DRY | tee -a run.log
+</code></pre>
+
+<h4 id="actual-run">Actual Run:</h4>
+
+<blockquote>
+<p>change <code>-t DRY</code> to <code>-t GO</code></p>
+</blockquote>
 <div class="page-break"></div>
 <footer class=" footline" >
 	
@@ -802,20 +855,20 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1509003529"></script>
-    <script src="/js/perfect-scrollbar.min.js?1509003529"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1509003529"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1509003529"></script>
-    <script src="/js/featherlight.min.js?1509003529"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1509003529"></script>
-    <script src="/js/highlight.pack.js?1509003529"></script>
+    <script src="/js/clipboard.min.js?1509027031"></script>
+    <script src="/js/perfect-scrollbar.min.js?1509027031"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1509027031"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1509027031"></script>
+    <script src="/js/featherlight.min.js?1509027031"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1509027031"></script>
+    <script src="/js/highlight.pack.js?1509027031"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1509003529"></script>
-    <script src="/js/learn.js?1509003529"></script>
-    <script src="/js/hugo-learn.js?1509003529"></script>
+    <script src="/js/modernizr.custom.71422.js?1509027031"></script>
+    <script src="/js/learn.js?1509027031"></script>
+    <script src="/js/hugo-learn.js?1509027031"></script>
 
-    <link href="/mermaid/mermaid.css?1509003529" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1509003529"></script>
+    <link href="/mermaid/mermaid.css?1509027031" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1509027031"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

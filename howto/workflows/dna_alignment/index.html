@@ -19,17 +19,17 @@
     <title>DNA Alignment :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1509003529" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1509003529" rel="stylesheet">
-    <link href="/css/hybrid.css?1509003529" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1509003529" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1509003529" rel="stylesheet">
-    <link href="/css/auto-complete.css?1509003529" rel="stylesheet">
-    <link href="/css/theme.css?1509003529" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1509003529" rel="stylesheet">
+    <link href="/css/nucleus.css?1509027031" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1509027031" rel="stylesheet">
+    <link href="/css/hybrid.css?1509027031" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1509027031" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1509027031" rel="stylesheet">
+    <link href="/css/auto-complete.css?1509027031" rel="stylesheet">
+    <link href="/css/theme.css?1509027031" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1509027031" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1509003529"></script>
+    <script src="/js/jquery-2.x.min.js?1509027031"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -159,14 +159,14 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1509003529"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1509003529"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1509027031"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1509027031"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1509003529"></script>
+<script type="text/javascript" src="/js/search.js?1509027031"></script>
 
     
   </div>
@@ -605,7 +605,7 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
 
 <p><code>glass_fastq_align --help</code> has following arguments to run alignment workflow. As long as data organization is preserved, only unique sample_barcode argument, <code>-s</code> is mandatory to run this workflow.</p>
 
-<pre><code class="language-bash">Usage: ${0##*/} -s &lt;UNIQUE SAMPLE NAME&gt; -a &lt;FILENAME OF FASTQ MAPPING TABLE&gt; -m &lt;RUN MODE (WGS|WES; default: WGS)&gt; -t &lt;RUN TYPE (DRY|GO; default: DRY)&gt; -d1 &lt;PATH TO DISK1 (default:/mnt/disk1)&gt; -d1 &lt;PATH TO DISK2 (default:/mnt/disk2)&gt; | tee -a ~/glass_run.log
+<pre><code class="language-bash">Usage: glass_fastq_align -s &lt;UNIQUE SAMPLE NAME&gt; -a &lt;FILENAME OF FASTQ MAPPING TABLE&gt; -m &lt;RUN MODE (WGS|WES; default: WGS)&gt; -t &lt;RUN TYPE (DRY|GO; default: DRY)&gt; -d1 &lt;PATH TO DISK1 (default:/mnt/disk1)&gt; -d1 &lt;PATH TO DISK2 (default:/mnt/disk2)&gt; | tee -a ~/glass_run.log
 
     -h  display this help and exit
     -s  unique sample_barcode (Required: This will be used to annotate bam headers and name output files)
@@ -625,17 +625,17 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
 
 <p>Assuming disk1 and disk2 are mounted at /mnt/, run typical dry run for WGS derived fastq for sample X using:</p>
 
-<pre><code>${0##*/} -s sampleX_barcode -a sampleX_mapping_table.tsv | tee -a ~/glass_run.log
+<pre><code>glass_fastq_align -s sampleX_barcode -a sampleX_mapping_table.tsv | tee -a ~/glass_run.log
 </code></pre>
 
 <p>To switch to whole exome derived fastq files, do:</p>
 
-<pre><code>${0##*/} -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES | tee -a ~/glass_run.log
+<pre><code>glass_fastq_align -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES | tee -a ~/glass_run.log
 </code></pre>
 
 <p>To switch from dry run to an actual run on a compute node, add -t GO argument, e.g.,:</p>
 
-<pre><code>${0##*/} -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES -t GO | tee -a ~/glass_run.log
+<pre><code>glass_fastq_align -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES -t GO | tee -a ~/glass_run.log
 </code></pre>
 
 <p>PS: In all cases, raw fastq files and related mapping file must be under
@@ -848,20 +848,20 @@ c-5 -76 -4 -92 10 -102 13 -11 10 -13 -22 -13 -35 0 -37 2 -25 16 18 22 27
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1509003529"></script>
-    <script src="/js/perfect-scrollbar.min.js?1509003529"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1509003529"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1509003529"></script>
-    <script src="/js/featherlight.min.js?1509003529"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1509003529"></script>
-    <script src="/js/highlight.pack.js?1509003529"></script>
+    <script src="/js/clipboard.min.js?1509027031"></script>
+    <script src="/js/perfect-scrollbar.min.js?1509027031"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1509027031"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1509027031"></script>
+    <script src="/js/featherlight.min.js?1509027031"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1509027031"></script>
+    <script src="/js/highlight.pack.js?1509027031"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1509003529"></script>
-    <script src="/js/learn.js?1509003529"></script>
-    <script src="/js/hugo-learn.js?1509003529"></script>
+    <script src="/js/modernizr.custom.71422.js?1509027031"></script>
+    <script src="/js/learn.js?1509027031"></script>
+    <script src="/js/hugo-learn.js?1509027031"></script>
 
-    <link href="/mermaid/mermaid.css?1509003529" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1509003529"></script>
+    <link href="/mermaid/mermaid.css?1509027031" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1509027031"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
