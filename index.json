@@ -4,14 +4,14 @@
 	"title": "HOME",
 	"tags": [],
 	"description": "GLASS Workflows",
-	"content": " Glioma Longitudinal AnalySiS Consortium This website hosts how-to manuals for running various analysis pipelines for the GLASS consortium.\nPreprint    Set Up  \n Setup keystone image  \n Setup disk mounts    Prepare disk mounts on the host system for use with docker containers\n\n How To  \n Workflows  \n DNA Alignment   Allows whole genome and exome alignment from fastq or legacy bam files.\n \n Variant Caller   Allows variant calling using\u0026hellip;\n  MuTect v1 MuTect v2 1 VarScan2 1  \n RNAseq Analyses   Allows processing of RNAseq data using\u0026hellip;\n  STAR-htseq PRADA  \n TidyData   Backup level 1 realigned bam files Backup level 2 or 3 output files for downstream analyses  \n "
+	"content": " Glioma Longitudinal AnalySiS Consortium This website hosts how-to manuals for running various analysis pipelines for the GLASS consortium.\nPreprint   Please report issues related to workflows at https://github.com/glass-consortium/glassdocs/issues\n   Issues loading website contents?   If website is not loading all of its contents or have formatting issues, you may visit mirror website at https://glass-consortium.github.io/glassdocs\n    Set Up  \n Setup keystone image  \n Setup disk mounts  \n How To  \n Workflows  \n DNA Alignment  \n Variant Caller  \n RNAseq Analyses  \n TidyData  \n "
 },
 {
 	"uri": "https://glass-consortium.github.io/glassdocs/setup/",
 	"title": " Set Up",
 	"tags": [],
 	"description": "",
-	"content": "  Setup keystone image  \n Setup disk mounts    Prepare disk mounts on the host system for use with docker containers\n\n  "
+	"content": "  Setup keystone image  \n Setup disk mounts  \n  "
 },
 {
 	"uri": "https://glass-consortium.github.io/glassdocs/setup/docker/",
