@@ -3,62 +3,62 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/</loc>
     <lastmod>2017-10-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/setup/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/setup/</loc>
   </url>
   
   <url>
-    <loc>/setup/docker/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/setup/docker/</loc>
   </url>
   
   <url>
-    <loc>/setup/diskmounts/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/setup/diskmounts/</loc>
   </url>
   
   <url>
-    <loc>/howto/workflows/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/howto/workflows/</loc>
   </url>
   
   <url>
-    <loc>/howto/workflows/dna_alignment/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/howto/workflows/dna_alignment/</loc>
   </url>
   
   <url>
-    <loc>/howto/tidydata/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/howto/tidydata/</loc>
   </url>
   
   <url>
-    <loc>/howto/workflows/variant_calling/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/howto/workflows/variant_calling/</loc>
   </url>
   
   <url>
-    <loc>/howto/workflows/rnaseq/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/howto/workflows/rnaseq/</loc>
   </url>
   
   <url>
-    <loc>/howto/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/howto/</loc>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/credits/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/credits/</loc>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/_header/</loc>
+    <loc>https://glass-consortium.github.io/glassdocs/_header/</loc>
   </url>
   
 </urlset>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HOME on GLASS Workflows</title>
-    <link>/</link>
+    <link>https://glass-consortium.github.io/glassdocs/</link>
     <description>Recent content in HOME on GLASS Workflows</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://glass-consortium.github.io/glassdocs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Credits</title>
-      <link>/credits/</link>
+      <link>https://glass-consortium.github.io/glassdocs/credits/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/credits/</guid>
+      <guid>https://glass-consortium.github.io/glassdocs/credits/</guid>
       <description> Data Infrastructure and Processing Committee of GLASS consortium maintains standardized data processing and sharing. For more details, view our  preprint
  Chair Roel Verhaak, Jackson Laboratory for Genomic Medicine, Farmington, CT, USA
    
@@ -25,10 +25,10 @@ Members  Rameen Beroukhim, Dana-Farber Cancer Institute, Boston, MA Christoph Bo
     
     <item>
       <title>header</title>
-      <link>/_header/</link>
+      <link>https://glass-consortium.github.io/glassdocs/_header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/_header/</guid>
+      <guid>https://glass-consortium.github.io/glassdocs/_header/</guid>
       <description>docker.glass-consortium.org</description>
     </item>
     
