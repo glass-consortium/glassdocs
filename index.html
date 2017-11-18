@@ -19,17 +19,17 @@
     <title>HOME :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1510856220" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1510856220" rel="stylesheet">
-    <link href="/css/hybrid.css?1510856220" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1510856220" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1510856220" rel="stylesheet">
-    <link href="/css/auto-complete.css?1510856220" rel="stylesheet">
-    <link href="/css/theme.css?1510856220" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1510856220" rel="stylesheet">
+    <link href="/css/nucleus.css?1511017149" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1511017149" rel="stylesheet">
+    <link href="/css/hybrid.css?1511017149" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1511017149" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1511017149" rel="stylesheet">
+    <link href="/css/auto-complete.css?1511017149" rel="stylesheet">
+    <link href="/css/theme.css?1511017149" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1511017149" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1510856220"></script>
+    <script src="/js/jquery-2.x.min.js?1511017149"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -67,8 +67,8 @@
   <div id="header-wrapper">
     <div id="header">
        
-	<p><a href="/"><img src="/images/glass_logo_globe.png" alt="glass logo" /></a>
-<a href="/">docker.glass-consortium.org</a></p>
+	<p><a href="http://glass-consortium.org" title="GLASS Consortium Home"><img src="/images/glass_logo_globe.png" alt="glass logo" /></a>
+<a href="/" title="Documentation Home">docker.glass-consortium.org</a></p>
  
 
 
@@ -80,14 +80,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1510856220"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1510856220"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1511017149"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1511017149"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1510856220"></script>
+<script type="text/javascript" src="/js/search.js?1511017149"></script>
 
     
   </div>
@@ -443,19 +443,6 @@
 
 <h4 id="glioma-longitudinal-analysis-consortium">Glioma Longitudinal AnalySiS Consortium</h4>
 
-<p>This website hosts how-to manuals for running various analysis pipelines for the <a href="http://glass-consortium.org" title="Consortium Homepage">GLASS consortium</a>.</p>
-
-<h5 id="preprint-hahahugoshortcode-1hbhb-https-www-biorxiv-org-content-early-2017-10-02-196139"><a href="https://www.biorxiv.org/content/early/2017/10/02/196139">Preprint 
-
-<span class="ai ai-biorxiv" aria-hidden="true"></span>
-
-
-</a></h5>
-
-<div class="notices note" ><p>Please report issues related to workflows at <a href="https://github.com/glass-consortium/glassdocs/issues">https://github.com/glass-consortium/glassdocs/issues</a></p>
-</div>
-
-
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
         <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
@@ -472,7 +459,25 @@
     </div>
 </div>
 
-<p>
+<p>This website hosts how-to manuals for running various analysis pipelines for the <a href="http://glass-consortium.org" title="Consortium Homepage">GLASS consortium</a>.</p>
+
+<h5 id="preprint-hahahugoshortcode-2hbhb-https-www-biorxiv-org-content-early-2017-10-02-196139"><a href="https://www.biorxiv.org/content/early/2017/10/02/196139">Preprint 
+
+<span class="ai ai-biorxiv" aria-hidden="true"></span>
+
+
+</a></h5>
+
+<div class="notices info" ><p>We are moving to Singularity based workflows for better compatibility with academic IT infrastructure. You can download beta built of Singularity image at <a href="https://github.com/glass-consortium/glasstools">https://github.com/glass-consortium/glasstools</a><br />
+Both Docker and Singularity images are near identical with a few changes in ENTRYPOINT and CMD specifications. While docker and Singularity images are stable enough to execute workflows, documentation and run scripts (shell wrappers) to run workflows are not ready yet for production release. All of run scripts reside outside of image and (when available) are sourced by image entrypoint/cmd specifications at execution of workflow. We will soon update documentation to run workflows.</p>
+</div>
+
+
+<p><div class="notices note" ><p>Please report issues related to workflows at <a href="https://github.com/glass-consortium/glassdocs/issues">https://github.com/glass-consortium/glassdocs/issues</a> and Singularity image at <a href="https://github.com/glass-consortium/glasstools/issues">https://github.com/glass-consortium/glasstools/issues</a></p>
+</div>
+</p>
+
+
 
 
 
@@ -508,11 +513,7 @@
 
 			
 				
-<p>  Setup keystone image    Download and setup docker image: glasstools/keystone
-
- Setup disk mounts    Prepare disk mounts on the host system for use with docker containers
-
-  </p>
+<p></p>
 				
 			
 		
@@ -651,14 +652,7 @@
 
 			
 				
-<p>Workflows  
- DNA Alignment   Allows whole genome and exome alignment from fastq or legacy bam files.
- 
- Variant Caller   Allows variant calling using&hellip;
-  MuTect v1 MuTect v2 1 VarScan2 1  
- RNAseq Analyses   Allows processing of RNAseq data using&hellip;
-  STAR-htseq PRADA  
- TidyData   Backup level 1 realigned bam files Backup level 2 or 3 output files for downstream analyses</p>
+<p></p>
 				
 			
 		
@@ -887,7 +881,7 @@
 
 
 
-</p>
+
 	
   
         
@@ -1085,20 +1079,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1510856220"></script>
-    <script src="/js/perfect-scrollbar.min.js?1510856220"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1510856220"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1510856220"></script>
-    <script src="/js/featherlight.min.js?1510856220"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1510856220"></script>
-    <script src="/js/highlight.pack.js?1510856220"></script>
+    <script src="/js/clipboard.min.js?1511017149"></script>
+    <script src="/js/perfect-scrollbar.min.js?1511017149"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1511017149"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1511017149"></script>
+    <script src="/js/featherlight.min.js?1511017149"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1511017149"></script>
+    <script src="/js/highlight.pack.js?1511017149"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1510856220"></script>
-    <script src="/js/learn.js?1510856220"></script>
-    <script src="/js/hugo-learn.js?1510856220"></script>
+    <script src="/js/modernizr.custom.71422.js?1511017149"></script>
+    <script src="/js/learn.js?1511017149"></script>
+    <script src="/js/hugo-learn.js?1511017149"></script>
 
-    <link href="/mermaid/mermaid.css?1510856220" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1510856220"></script>
+    <link href="/mermaid/mermaid.css?1511017149" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1511017149"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
