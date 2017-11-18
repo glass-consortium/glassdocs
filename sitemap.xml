@@ -3,62 +3,62 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/</loc>
+    <loc>glassdocs/</loc>
     <lastmod>2017-10-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/setup/</loc>
+    <loc>glassdocs/setup/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/setup/docker/</loc>
+    <loc>glassdocs/setup/docker/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/setup/diskmounts/</loc>
+    <loc>glassdocs/setup/diskmounts/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/howto/workflows/</loc>
+    <loc>glassdocs/howto/workflows/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/howto/workflows/dna_alignment/</loc>
+    <loc>glassdocs/howto/workflows/dna_alignment/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/howto/tidydata/</loc>
+    <loc>glassdocs/howto/tidydata/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/howto/workflows/variant_calling/</loc>
+    <loc>glassdocs/howto/workflows/variant_calling/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/howto/workflows/rnaseq/</loc>
+    <loc>glassdocs/howto/workflows/rnaseq/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/howto/</loc>
+    <loc>glassdocs/howto/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/categories/</loc>
+    <loc>glassdocs/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/credits/</loc>
+    <loc>glassdocs/credits/</loc>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/tags/</loc>
+    <loc>glassdocs/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://glass-consortium.github.io/glassdocs/_header/</loc>
+    <loc>glassdocs/_header/</loc>
   </url>
   
 </urlset>
