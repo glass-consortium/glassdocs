@@ -16,7 +16,7 @@
 
 
 
-    <title>DNA Alignment :: GLASS Workflows</title>
+    <title>Setup Singularity Image :: GLASS Workflows</title>
     
     
     <link href="/css/nucleus.css?1511199897" rel="stylesheet">
@@ -59,7 +59,7 @@
 <link href="/css/user.css" rel="stylesheet">
 
   </head>
-  <body class="" data-url="/howto/workflows/dna_alignment/">
+  <body class="" data-url="/setup/singularity/">
     <nav id="sidebar" class="showVisitedLinks no-print">
 
 
@@ -104,7 +104,7 @@
   
     
     <li data-nav-id="/setup/" title=" Set Up" class="dd-item 
-        
+        parent
         
         
         ">
@@ -159,8 +159,8 @@
   
     
     <li data-nav-id="/setup/singularity/" title="Setup Singularity Image" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/setup/singularity/">
@@ -218,7 +218,7 @@
   
     
     <li data-nav-id="/howto/" title=" How To" class="dd-item 
-        parent
+        
         
         
         ">
@@ -247,7 +247,7 @@
   
     
     <li data-nav-id="/howto/workflows/" title="Workflows" class="dd-item 
-        parent
+        
         
         
         ">
@@ -276,8 +276,8 @@
   
     
     <li data-nav-id="/howto/workflows/dna_alignment/" title="DNA Alignment" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/howto/workflows/dna_alignment/">
@@ -478,13 +478,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/'>HOME</a> > <a href='/howto/'> How To</a> > <a href='/howto/workflows/'>Workflows</a> > DNA Alignment
-          
-         
+            <a href='/'>HOME</a> > <a href='/setup/'> Set Up</a> > Setup Singularity Image
           
          
           
@@ -500,10 +494,16 @@
 <ul>
 <li>
 <ul>
+<li><a href="#singularity-image-for-glass-workflows">Singularity image for GLASS workflows</a>
+<ul>
 <li>
 <ul>
-<li><a href="#how-to-run-docker-based-pipeline">How-to run docker based pipeline</a></li>
-<li><a href="#to-run-workflow">To run workflow:</a></li>
+<li><a href="#current-build">Current Build</a></li>
+</ul></li>
+<li><a href="#how-to-install-singularity">How to install Singularity</a>
+<ul>
+<li><a href="#manual-build">Manual build</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -519,63 +519,138 @@
         
         <div id="body-inner" class="printwide">
           
-            <h1>DNA Alignment</h1>
+            <h1>Setup Singularity Image</h1>
           
 
         
 
 
-<blockquote>
-<p>Allows whole genome and exome alignment from fastq or legacy bam files.</p>
-</blockquote>
+<p>Download and setup Singularity image: <em>glass-consortium/glasstools:beta</em></p>
 
 <p></p>
 
-<h3 id="how-to-run-docker-based-pipeline">How-to run docker based pipeline</h3>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Looking for Docker image?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Visit <a href="/setup/docker/">Docker</a> page for installation and configuring Docker based workflows.</p>
 
-<p>Helper script: <code>disk1/glasscore/configs/bin/glass_fastq_align</code></p>
+    </div>
+</div>
 
-<p>Organize fastq or bam files and matching <code>mapping_table.tsv</code> file, e.g., for sampleX, create folder named sampleX under <em>/mnt/disk2/glassdata/inputs/fqs/</em> and then place <code>sampleX_mapping_table.tsv</code> file at <em>/mnt/disk2/glassdata/inputs/fqs/sampleX/sampleX_mapping_table.tsv</em></p>
+<h2 id="singularity-image-for-glass-workflows">Singularity image for GLASS workflows</h2>
 
-<p>Filename of fastq files and not the full path should be written in the mapping table. Check out example mapping table at <a href="https://gist.github.com/sbamin/d86c9cd0b522a205fd128d266910a7cf">https://gist.github.com/sbamin/d86c9cd0b522a205fd128d266910a7cf</a></p>
+<blockquote>
+<p>18-Nov-2017<br />
+v1.1.2s2</p>
+</blockquote>
 
-<p><code>glass_fastq_align --help</code> has following arguments to run alignment workflow. As long as data organization is preserved, only unique sample_barcode argument, <code>-s</code> is mandatory to run this workflow.</p>
+<p>Build details for <code>glass-consortium/glasstools</code> images.</p>
 
-<pre><code class="language-bash">Usage: glass_fastq_align -s &lt;UNIQUE SAMPLE NAME&gt; -a &lt;FILENAME OF FASTQ MAPPING TABLE&gt; -m &lt;RUN MODE (WGS|WES; default: WGS)&gt; -t &lt;RUN TYPE (DRY|GO; default: DRY)&gt; -d1 &lt;PATH TO DISK1 (default:/mnt/disk1)&gt; -d1 &lt;PATH TO DISK2 (default:/mnt/disk2)&gt; | tee -a ~/glass_run.log
+<p><strong>PS:</strong> Documentation to run workflows is not yet ready. Visit <a href="https://docker.glass-consortium.org">https://docker.glass-consortium.org</a> for updates.</p>
 
-    -h  display this help and exit
-    -s  unique sample_barcode (Required: This will be used to annotate bam headers and name output files)
-    -a  filename (and not full path) of fastq mapping table. 
-        Place this file under /mnt/disk2/glassdata/inputs/fqs/sample_barcode/ path
-        default is &lt;sample_barcode&gt;_mapping_table.tsv
+<h4 id="current-build">Current Build</h4>
 
-    -m  run mode: WGS or WES (default: WGS; select WES if input fastqs are from whole exome or other target capture based assay)
-    -t  run type: DRY or GO (default: DRY; GO will execute actual pipeline on a compute node)
-    -r  path to reference data disk1 base (default: /mnt/disk1)
-    -e  path to storage data disk2 base (default: /mnt/disk2)
-        Read http://docker.glass-consortium.org on setting up disk mounts by downloading pre-built reference datasets.
+<blockquote>
+<p>See below on how to install Singularity version: <code>2.4-install_718360bb.g718360bb</code></p>
+</blockquote>
 
+<pre><code class="language-sh">singularity pull shub://glass-consortium/glasstools:beta
 </code></pre>
 
-<h3 id="to-run-workflow">To run workflow:</h3>
+<p>Automated build, when successfully built is available at Singularity Hub: <a href="https://www.singularity-hub.org/collections/262">https://www.singularity-hub.org/collections/262</a> with image tag: <code>glass-consortium/glasstools:beta</code></p>
 
-<p>Assuming disk1 and disk2 are mounted at /mnt/, run typical dry run for WGS derived fastq for sample X using:</p>
+<ul>
+<li>Download using <a href="http://singularity.lbl.gov">Singularity</a>, v2.4 or higher.</li>
+<li>Avoid running container as root. Singularity images does not require root privileges to run workflows.</li>
+<li>Default bind while running workflow is user ${HOME}.</li>
+<li>For better potability and disk mounts, ask your system admin to configure <code>/etc/singularity/singularity.conf</code> and set <code>enable overlay = yes</code>. Read <a href="http://singularity.lbl.gov/docs-mount">http://singularity.lbl.gov/docs-mount</a> for details.</li>
+</ul>
 
-<pre><code>glass_fastq_align -s sampleX_barcode -a sampleX_mapping_table.tsv | tee -a ~/glass_run.log
+<p>Visit <a href="/setup/diskmounts/">Disk Mounts</a> section for more on how to mount host disk volumes and start workflows.</p>
+
+<hr />
+
+<h3 id="how-to-install-singularity">How to install Singularity</h3>
+
+<ul>
+<li>One time installation, <strong>requires admin privileges</strong></li>
+</ul>
+
+<blockquote>
+<p>Please ask your system administrator to install Singularity with following version. While installation should be done by IT administrator, running GLASS workflows does not require <code>sudo</code> privilege. Also, unlike potential root escalation while running docker container, Singularity based workflows are more isolated from host environment and less vulnerable to root escalation. Visit <a href="http://singularity.lbl.gov/user-guide#security-and-privilege-escalation">http://singularity.lbl.gov/user-guide#security-and-privilege-escalation</a> for more on security.</p>
+</blockquote>
+
+<ul>
+<li>GLASS workflows are using Singularity <code>v2.4</code><br /></li>
+</ul>
+
+<blockquote>
+<p>Full version at the time of install: v2.4-install_718360bb.g718360bb<br />
+Commit: <a href="https://github.com/singularityware/singularity/commit/718360bb20b66cbafb85dd9d0a73bd6bb60c7a1f">https://github.com/singularityware/singularity/commit/718360bb20b66cbafb85dd9d0a73bd6bb60c7a1f</a></p>
+</blockquote>
+
+<ul>
+<li>For better compatibility with pre-built GLASS image, please install Singularity from forked reposioty as follows:</li>
+</ul>
+
+<pre><code class="language-sh">umask 0022
+
+git clone https://github.com/glass-consortium/singularity.git
+cd singularity
+
+## confirm last commit ID to be 718360bb20b66cbafb85dd9d0a73bd6bb60c7a1f for HEAD -&gt; master branch
+git log --name-status HEAD^..HEAD
+
+## fork master branch to a new branch, named install_718360bb
+git checkout -b install_718360bb
+git status
 </code></pre>
 
-<p>To switch to whole exome derived fastq files, do:</p>
+<blockquote>
+<p>This will show&hellip;</p>
 
-<pre><code>glass_fastq_align -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES | tee -a ~/glass_run.log
+<p>On branch install_718360bb<br />
+nothing to commit, working tree clean</p>
+</blockquote>
+
+<pre><code class="language-sh">./autogen.sh &amp;&amp; ./configure --prefix=/usr/local &amp;&amp; make
+
+# return exit code for compilation status
+echo $?
+
+## only one time, we need root privileges
+sudo make install
+
+## return to non-root user environment
+sudo -k
+
+cd ${HOME} # non-root user
+
+singularity --version
 </code></pre>
 
-<p>To switch from dry run to an actual run on a compute node, add -t GO argument, e.g.,:</p>
+<p>This will show <code>2.4-install_718360bb.g718360bb</code>. If so, installation is identical to an environment used to build GLASS Singularity image.</p>
 
-<pre><code>glass_fastq_align -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES -t GO | tee -a ~/glass_run.log
+<h4 id="manual-build">Manual build</h4>
+
+<p>We recommend pulling pre-built Singularity image from Singularity registry at <a href="https://www.singularity-hub.org/collections/262">https://www.singularity-hub.org/collections/262</a></p>
+
+<p>Manual build is for improvement and debugging of current beta image, especially with reducing image size and adding shortcodes to additional GLASS workflows. Visit <a href="https://github.com/glass-consortium/glasstools">https://github.com/glass-consortium/glasstools</a> for Singularity file and automated build details.</p>
+
+<pre><code class="language-sh">git clone https://github.com/glass-consortium/glasstools.git
+cd build
+
+singularity build glasstools_keystone_beta.simg Singularity.beta
+singularity inspect glasstools_keystone_beta.simg
 </code></pre>
-
-<p>PS: In all cases, raw fastq files and related mapping file must be under
-<code>/mnt/disk2/glassdata/inputs/fqs/&lt;sample_barcode&gt;/</code> directory</p>
 <div class="page-break"></div>
 <footer class=" footline" >
 	
@@ -611,8 +686,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -628,6 +701,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -639,73 +715,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
                     
                         
             
@@ -743,6 +752,71 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -788,10 +862,10 @@
 
 
         
-            <a class="nav nav-prev" href="/howto/workflows/" title="Workflows"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/setup/docker/" title="Setup Docker Image"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/howto/workflows/variant_calling/" title="Variant Caller" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/setup/diskmounts/" title="Setup Disk Mounts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

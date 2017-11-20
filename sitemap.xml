@@ -16,6 +16,10 @@
   </url>
   
   <url>
+    <loc>/setup/singularity/</loc>
+  </url>
+  
+  <url>
     <loc>/setup/diskmounts/</loc>
   </url>
   
