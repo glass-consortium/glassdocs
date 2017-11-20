@@ -26,6 +26,16 @@
 	vertical-align: middle;
 }
 
+/*custom notice banners*/
+
+div.notices.spoiler p {
+    border-top: 30px solid rgba(217, 83, 79, 0.8);
+    background: #FAE2E2;
+}
+div.notices.spoiler p:first-child:after {
+    content: 'Spoiler Alert!';
+}
+
 /*############################################################*/
 /*cleanup print format*/
 @media print {

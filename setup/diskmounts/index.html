@@ -19,17 +19,17 @@
     <title>Setup disk mounts :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1511022653" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1511022653" rel="stylesheet">
-    <link href="/css/hybrid.css?1511022653" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1511022653" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1511022653" rel="stylesheet">
-    <link href="/css/auto-complete.css?1511022653" rel="stylesheet">
-    <link href="/css/theme.css?1511022653" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1511022653" rel="stylesheet">
+    <link href="/css/nucleus.css?1511155202" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1511155202" rel="stylesheet">
+    <link href="/css/hybrid.css?1511155202" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1511155202" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1511155202" rel="stylesheet">
+    <link href="/css/auto-complete.css?1511155202" rel="stylesheet">
+    <link href="/css/theme.css?1511155202" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1511155202" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1511022653"></script>
+    <script src="/js/jquery-2.x.min.js?1511155202"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -80,14 +80,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1511022653"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1511022653"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1511155202"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1511155202"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1511022653"></script>
+<script type="text/javascript" src="/js/search.js?1511155202"></script>
 
     
   </div>
@@ -124,6 +124,58 @@
           
           
         
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/setup/docker/" title="Setup keystone image" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/setup/docker/">
+          Setup keystone image
+          
+            <i class="fa fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/setup/diskmounts/" title="Setup disk mounts" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/setup/diskmounts/">
+          Setup disk mounts
+          
+            <i class="fa fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
           
         
         </ul>
@@ -422,7 +474,13 @@
 <ul>
 <li><a href="#with-data-mounts-and-host-user-group-mapping">With data mounts and host user:group mapping</a></li>
 </ul></li>
+<li><a href="#tree-view-of-glass-mounts">Tree view of GLASS mounts</a></li>
 <li><a href="#rationale-for-host-user-mapping">Rationale for host user mapping:</a></li>
+<li><a href="#how-to-bind-mounts">How to bind mounts</a>
+<ul>
+<li><a href="#docker">Docker</a></li>
+<li><a href="#singularity">Singularity</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -455,6 +513,39 @@
 
 <h4 id="with-data-mounts-and-host-user-group-mapping">With data mounts and host user:group mapping</h4>
 
+<div class="notices note" ><p>Singularity based image does not require user:group mapping but do require binding of disk mounts in same order as with docker based workflows.</p>
+</div>
+
+
+<h3 id="tree-view-of-glass-mounts">Tree view of GLASS mounts</h3>
+
+<p>On host system, create a base directory named, <code>glass_mounts</code> with following subdirectories. GLASS workflows rely on strict hierarchy of directories within <code>glass_mounts</code>.</p>
+
+<pre><code>glass_mounts # base directory on host system under all disk mounts are present
+├── disk1 # disk for workflows scripts, custom startup for users and run logs
+│   ├── glasscore # space for workflows, user startup and apps configuration
+│   │   ├── configs
+│   │   │   ├── bin # put executables here to be sourced from container ENV
+│   │   │   ├── extapps # put jar files or compiled apps here
+│   │   │   │   └── Rpkgs # put additional compiled R packages (v3.4.2) here
+│   │   │   └── profile.d # user bash startup config ending with .sh extension
+│   │   └── workflows # read-only mount to keep git versioned GLASS workflows
+│   └── scratch
+│       ├── logs # logs while starting workflows are stored here
+│       └── refdata # all of referenced data from FTP portal
+│           └── bundle # GATK bundle from FTP portal goes here
+└── disk2 # disk for protected data
+    └── glassdata # space for both input and output files
+        ├── final_bams # final level 1 bam files or input for downstream
+        ├── flowr # core directory where workflows will save data
+        ├── inputs # space to keep input fastq or legacy bam files
+        │   ├── bams # keep legacy bam files and mapping table per sample here
+        │   │   └── sampleX
+        │   └── fqs # keep legacy fastq files and mapping table per sample here
+        │       └── sampleX
+        └── tmp # space for saving tmp files when workflows are running
+</code></pre>
+
 <h3 id="rationale-for-host-user-mapping">Rationale for host user mapping:</h3>
 
 <ul>
@@ -463,14 +554,57 @@
 <li>Such host user mapping restricts privilege escalation while running docker container which can otherwise adversely impact host file system. Read more at <a href="https://docs.docker.com/engine/security/security/">https://docs.docker.com/engine/security/security/</a> and <a href="https://security.stackexchange.com/a/153016">https://security.stackexchange.com/a/153016</a></li>
 </ul>
 
-<pre><code class="language-sh">export GLASSMOUNTS=&quot;/fastscratch/foo/dockvol/glass_tools/glass_mounts&quot;
+<h3 id="how-to-bind-mounts">How to bind mounts</h3>
 
-docker run -e HOSTUSER=$USER -e HOSTGROUP=verhaak-lab -e HOSTUSERID=$UID -e HOSTGROUPID=56565 -v &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore -v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch -v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata glasstools/keystone
+<pre><code class="language-sh"># on host system, export variable where diskmounts are present, typically under /mnt
+export GLASSMOUNTS=&quot;mnt/glass_mounts&quot;
 </code></pre>
 
+<h4 id="docker">Docker</h4>
+
 <ul>
-<li>This will source commands or workflow from <code>disk1/glasscore/Workflows/startup</code> script</li>
+<li>Replace <code>mygroupname</code> and <code>00000</code> with relevant group name and ID, respectively.</li>
 </ul>
+
+<pre><code class="language-sh">docker run -e HOSTUSER=$USER -e HOSTGROUP=mygroupname \
+-e HOSTUSERID=$UID -e HOSTGROUPID=00000 \
+-v &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore \
+-v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
+-v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
+glasstools/keystone:latest goglass -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
+</code></pre>
+
+<h4 id="singularity">Singularity</h4>
+
+<pre><code class="language-sh">singularity run --app goglass \
+-B &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore \
+-B &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
+-B &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
+glasstools_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
+</code></pre>
+
+<div class="notices spoiler" ><p>We are working on <code>goglass</code> wrapper for sharing with the entire group. Until then, please <a href="/credits">contact Roel, Samir or Hoon</a> to get started on workflows.</p>
+</div>
+
+
+<ul>
+<li>This will source commands or workflow from <code>disk1/glasscore/Workflows/goglass</code> script with following instructions:</li>
+</ul>
+
+<pre><code>-m or mode: DNA (Others: RNA)
+
+-t or type: align (Others: mutect, mutect2, varscan2 for DNA; align, star, prada for RNA)
+
+-i or input: fqs for paired-end fastaq (Others: paired-end legacy bam files or level 1 aligned bam files from GLASS workflows for variant calling or RNAseq analyses)
+
+-s or unique sample barcode, preferably containing immutable uuid
+
+-f or mapping table: required for DNA alignments to get details on read groups for multi-lane sequenced samples
+
+-d or data type: WGS or WES for alignments
+
+-n or run type: DRY (test run) or GO (actual run)
+</code></pre>
 <div class="page-break"></div>
 <footer class=" footline" >
 	
@@ -678,20 +812,20 @@ docker run -e HOSTUSER=$USER -e HOSTGROUP=verhaak-lab -e HOSTUSERID=$UID -e HOST
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1511022653"></script>
-    <script src="/js/perfect-scrollbar.min.js?1511022653"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1511022653"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1511022653"></script>
-    <script src="/js/featherlight.min.js?1511022653"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1511022653"></script>
-    <script src="/js/highlight.pack.js?1511022653"></script>
+    <script src="/js/clipboard.min.js?1511155202"></script>
+    <script src="/js/perfect-scrollbar.min.js?1511155202"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1511155202"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1511155202"></script>
+    <script src="/js/featherlight.min.js?1511155202"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1511155202"></script>
+    <script src="/js/highlight.pack.js?1511155202"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1511022653"></script>
-    <script src="/js/learn.js?1511022653"></script>
-    <script src="/js/hugo-learn.js?1511022653"></script>
+    <script src="/js/modernizr.custom.71422.js?1511155202"></script>
+    <script src="/js/learn.js?1511155202"></script>
+    <script src="/js/hugo-learn.js?1511155202"></script>
 
-    <link href="/mermaid/mermaid.css?1511022653" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1511022653"></script>
+    <link href="/mermaid/mermaid.css?1511155202" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1511155202"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
