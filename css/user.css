@@ -92,6 +92,8 @@ pre {
 	border-radius: 4px;
 	-moz-box-shadow: 3px 3px rgba(0,0,0,.1);
 	box-shadow: 3px 3px rgba(0,0,0,.1);
+  line-height: 1.4;
+  page-break-inside: avoid;
 }
 
 pre .copy-to-clipboard {
