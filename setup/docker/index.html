@@ -16,20 +16,20 @@
 
 
 
-    <title>Setup keystone image :: GLASS Workflows</title>
+    <title>Setup Docker Image :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1511157999" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1511157999" rel="stylesheet">
-    <link href="/css/hybrid.css?1511157999" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1511157999" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1511157999" rel="stylesheet">
-    <link href="/css/auto-complete.css?1511157999" rel="stylesheet">
-    <link href="/css/theme.css?1511157999" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1511157999" rel="stylesheet">
+    <link href="/css/nucleus.css?1511199897" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1511199897" rel="stylesheet">
+    <link href="/css/hybrid.css?1511199897" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1511199897" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1511199897" rel="stylesheet">
+    <link href="/css/auto-complete.css?1511199897" rel="stylesheet">
+    <link href="/css/theme.css?1511199897" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1511199897" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1511157999"></script>
+    <script src="/js/jquery-2.x.min.js?1511199897"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -80,14 +80,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1511157999"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1511157999"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1511199897"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1511199897"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1511157999"></script>
+<script type="text/javascript" src="/js/search.js?1511199897"></script>
 
     
   </div>
@@ -132,13 +132,13 @@
  
   
     
-    <li data-nav-id="/setup/docker/" title="Setup keystone image" class="dd-item 
+    <li data-nav-id="/setup/docker/" title="Setup Docker Image" class="dd-item 
         parent
         active
         
         ">
       <a href="/setup/docker/">
-          Setup keystone image
+          Setup Docker Image
           
             <i class="fa fa-check read-icon"></i>
           
@@ -158,13 +158,39 @@
  
   
     
-    <li data-nav-id="/setup/diskmounts/" title="Setup disk mounts" class="dd-item 
+    <li data-nav-id="/setup/singularity/" title="Setup Singularity Image" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/setup/singularity/">
+          Setup Singularity Image
+          
+            <i class="fa fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/setup/diskmounts/" title="Setup Disk Mounts" class="dd-item 
         
         
         
         ">
       <a href="/setup/diskmounts/">
-          Setup disk mounts
+          Setup Disk Mounts
           
             <i class="fa fa-check read-icon"></i>
           
@@ -452,7 +478,7 @@
             
           
           
-            <a href='/'>HOME</a> > <a href='/setup/'> Set Up</a> > Setup keystone image
+            <a href='/'>HOME</a> > <a href='/setup/'> Set Up</a> > Setup Docker Image
           
          
           
@@ -470,7 +496,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#singularity-image">Singularity image</a></li>
+<li><a href="#installing-docker">Installing Docker</a></li>
 <li><a href="#docker-image">Docker image</a></li>
 <li><a href="#test-run">Test run</a>
 <ul>
@@ -494,27 +520,35 @@
         
         <div id="body-inner" class="printwide">
           
-            <h1>Setup keystone image</h1>
+            <h1>Setup Docker Image</h1>
           
 
         
 
 
-<p>
-
-<span class="fa fa-docker aln-middle"  style="font-size:3rem" aria-hidden="true"></span>
-
-
- Download and setup docker image: <em>glasstools/keystone</em></p>
+<p>Download and setup docker image: <em>glasstools/keystone</em></p>
 
 <p></p>
 
-<h3 id="singularity-image">Singularity image</h3>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Looking for Singularity image?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Visit <a href="/setup/singularity/">Singularity</a> page for installation and configuring Singularity based workflows.</p>
 
-<pre><code class="language-sh">singularity pull shub://glass-consortium/glasstools:beta
-</code></pre>
+    </div>
+</div>
 
-<p>Visit <a href="https://github.com/glass-consortium/glasstools">https://github.com/glass-consortium/glasstools</a> for setup instructions on Singularity</p>
+<h3 id="installing-docker">Installing Docker</h3>
+
+<p>Your system administrator can install Docker version <code>17.09.0-ce, build afdb6d4</code> or higher. For more, visit <a href="https://docs.docker.com/engine/installation/">https://docs.docker.com/engine/installation/</a></p>
 
 <h3 id="docker-image">Docker image</h3>
 
@@ -541,6 +575,7 @@ docker run -e HOSTUSER=$USER -e HOSTGROUP=verhaak-lab -e HOSTUSERID=$UID -e HOST
 
 <ul>
 <li>This will source commands or workflow from <code>disk1/glasscore/Workflows/startup</code> script</li>
+<li>Visit <a href="/setup/diskmounts/">Disk Mounts</a> section for more on how to mount host disk volumes and start workflows.</li>
 </ul>
 
 <h4 id="run-specific-tools">Run specific tools</h4>
@@ -602,8 +637,6 @@ drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 glasscore
 drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 glassdata
 drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 scratch
 </code></pre>
-
-<p>end</p>
 <div class="page-break"></div>
 <footer class=" footline" >
 	
@@ -674,6 +707,22 @@ drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 scratch
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -799,7 +848,7 @@ drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 scratch
             <a class="nav nav-prev" href="/setup/" title=" Set Up"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/setup/diskmounts/" title="Setup disk mounts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/setup/singularity/" title="Setup Singularity Image" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -808,20 +857,20 @@ drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 scratch
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1511157999"></script>
-    <script src="/js/perfect-scrollbar.min.js?1511157999"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1511157999"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1511157999"></script>
-    <script src="/js/featherlight.min.js?1511157999"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1511157999"></script>
-    <script src="/js/highlight.pack.js?1511157999"></script>
+    <script src="/js/clipboard.min.js?1511199897"></script>
+    <script src="/js/perfect-scrollbar.min.js?1511199897"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1511199897"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1511199897"></script>
+    <script src="/js/featherlight.min.js?1511199897"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1511199897"></script>
+    <script src="/js/highlight.pack.js?1511199897"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1511157999"></script>
-    <script src="/js/learn.js?1511157999"></script>
-    <script src="/js/hugo-learn.js?1511157999"></script>
+    <script src="/js/modernizr.custom.71422.js?1511199897"></script>
+    <script src="/js/learn.js?1511199897"></script>
+    <script src="/js/hugo-learn.js?1511199897"></script>
 
-    <link href="/mermaid/mermaid.css?1511157999" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1511157999"></script>
+    <link href="/mermaid/mermaid.css?1511199897" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1511199897"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
