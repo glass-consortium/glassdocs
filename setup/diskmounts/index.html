@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.27.1" />
+    <meta name="generator" content="Hugo 0.31.1" />
     <meta name="description" content="Documentation for GLASS Consortium Workflows">
 <meta name="author" content="Samir B. Amin">
 
@@ -19,17 +19,17 @@
     <title>Setup Disk Mounts :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1511214346" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1511214346" rel="stylesheet">
-    <link href="/css/hybrid.css?1511214346" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1511214346" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1511214346" rel="stylesheet">
-    <link href="/css/auto-complete.css?1511214346" rel="stylesheet">
-    <link href="/css/theme.css?1511214346" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1511214346" rel="stylesheet">
+    <link href="/css/nucleus.css?1512374444" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1512374444" rel="stylesheet">
+    <link href="/css/hybrid.css?1512374444" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1512374444" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1512374444" rel="stylesheet">
+    <link href="/css/auto-complete.css?1512374444" rel="stylesheet">
+    <link href="/css/theme.css?1512374444" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1512374444" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1511214346"></script>
+    <script src="/js/jquery-2.x.min.js?1512374444"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -80,14 +80,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1511214346"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1511214346"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1512374444"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1512374444"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1511214346"></script>
+<script type="text/javascript" src="/js/search.js?1512374444"></script>
 
     
   </div>
@@ -500,8 +500,8 @@
 <li><a href="#rationale-for-host-user-mapping">Rationale for host user mapping:</a></li>
 <li><a href="#how-to-bind-mounts">How to bind mounts</a>
 <ul>
-<li><a href="#docker">Docker</a></li>
 <li><a href="#singularity">Singularity</a></li>
+<li><a href="#docker">Docker</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -573,11 +573,32 @@
 
 <h3 id="how-to-bind-mounts">How to bind mounts</h3>
 
+<ul>
+<li>Copy contents from <a href="ftp://ftp.jax.org/verhaak/glass_mounts">ftp://ftp.jax.org/verhaak/glass_mounts</a> and specify path as <code>GLASSMOUNTS</code> variable</li>
+</ul>
+
 <pre><code class="language-sh"># on host system, export variable where diskmounts are present, typically under /mnt
 export GLASSMOUNTS=&quot;/mnt/glass_mounts&quot;
 </code></pre>
 
+<h4 id="singularity">Singularity</h4>
+
+<pre><code class="language-sh">singularity run --app goglass \
+-B &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore \
+-B &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
+-B &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
+glasstools_keystone_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
+</code></pre>
+
+<ul>
+<li>Visit <a href="/howto/workflows/dna_alignment/">HowTo - DNA Alignments</a> for more on running Singularity based fastq alignments</li>
+</ul>
+
 <h4 id="docker">Docker</h4>
+
+<div class="notices spoiler" ><p>We are working on <code>goglass</code> wrapper for docker. Until then, please use singularity version.</p>
+</div>
+
 
 <ul>
 <li>Replace <code>mygroupname</code> and <code>00000</code> with relevant group name and ID, respectively.</li>
@@ -589,38 +610,6 @@ export GLASSMOUNTS=&quot;/mnt/glass_mounts&quot;
 -v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
 -v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
 glasstools/keystone:latest goglass -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
-</code></pre>
-
-<h4 id="singularity">Singularity</h4>
-
-<pre><code class="language-sh">singularity run --app goglass \
--B &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore \
--B &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
--B &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
-glasstools_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
-</code></pre>
-
-<div class="notices spoiler" ><p>We are working on <code>goglass</code> wrapper for sharing with the entire group. Until then, please <a href="/credits">contact Roel, Samir or Hoon</a> to get started on workflows.</p>
-</div>
-
-
-<ul>
-<li>This will source commands or workflow from <code>disk1/glasscore/Workflows/goglass</code> script with following instructions:</li>
-</ul>
-
-<pre><code class="language-none">-m or mode: DNA (Others: RNA)
-
--t or type: align (Others: mutect, mutect2, varscan2 for DNA; align, star, prada for RNA)
-
--i or input: fqs for paired-end fastaq (Others: paired-end legacy bam files or level 1 aligned bam files from GLASS workflows for variant calling or RNAseq analyses)
-
--s or unique sample barcode, preferably containing immutable uuid
-
--f or mapping table: required for DNA alignments to get details on read groups for multi-lane sequenced samples
-
--d or data type: WGS or WES for alignments
-
--n or run type: DRY (test run) or GO (actual run)
 </code></pre>
 <div class="page-break"></div>
 <footer class=" footline" >
@@ -845,20 +834,20 @@ glasstools_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample_mapping_
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1511214346"></script>
-    <script src="/js/perfect-scrollbar.min.js?1511214346"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1511214346"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1511214346"></script>
-    <script src="/js/featherlight.min.js?1511214346"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1511214346"></script>
-    <script src="/js/highlight.pack.js?1511214346"></script>
+    <script src="/js/clipboard.min.js?1512374444"></script>
+    <script src="/js/perfect-scrollbar.min.js?1512374444"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1512374444"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1512374444"></script>
+    <script src="/js/featherlight.min.js?1512374444"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1512374444"></script>
+    <script src="/js/highlight.pack.js?1512374444"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1511214346"></script>
-    <script src="/js/learn.js?1511214346"></script>
-    <script src="/js/hugo-learn.js?1511214346"></script>
+    <script src="/js/modernizr.custom.71422.js?1512374444"></script>
+    <script src="/js/learn.js?1512374444"></script>
+    <script src="/js/hugo-learn.js?1512374444"></script>
 
-    <link href="/mermaid/mermaid.css?1511214346" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1511214346"></script>
+    <link href="/mermaid/mermaid.css?1512374444" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1512374444"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
