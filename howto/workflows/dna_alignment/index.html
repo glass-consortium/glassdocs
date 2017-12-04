@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.27.1" />
+    <meta name="generator" content="Hugo 0.31.1" />
     <meta name="description" content="Documentation for GLASS Consortium Workflows">
 <meta name="author" content="Samir B. Amin">
 
@@ -19,17 +19,17 @@
     <title>DNA Alignment :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1511214346" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1511214346" rel="stylesheet">
-    <link href="/css/hybrid.css?1511214346" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1511214346" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1511214346" rel="stylesheet">
-    <link href="/css/auto-complete.css?1511214346" rel="stylesheet">
-    <link href="/css/theme.css?1511214346" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1511214346" rel="stylesheet">
+    <link href="/css/nucleus.css?1512374433" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1512374433" rel="stylesheet">
+    <link href="/css/hybrid.css?1512374433" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1512374433" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1512374433" rel="stylesheet">
+    <link href="/css/auto-complete.css?1512374433" rel="stylesheet">
+    <link href="/css/theme.css?1512374433" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1512374433" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1511214346"></script>
+    <script src="/js/jquery-2.x.min.js?1512374433"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -80,14 +80,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1511214346"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1511214346"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1512374433"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1512374433"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1511214346"></script>
+<script type="text/javascript" src="/js/search.js?1512374433"></script>
 
     
   </div>
@@ -498,8 +498,11 @@
 <ul>
 <li>
 <ul>
-<li><a href="#how-to-run-docker-based-pipeline">How-to run docker based pipeline</a></li>
-<li><a href="#to-run-workflow">To run workflow:</a></li>
+<li>
+<ul>
+<li><a href="#singularity">Singularity</a></li>
+<li><a href="#docker">Docker</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -522,56 +525,113 @@
 
 
 <blockquote>
-<p>Allows whole genome and exome alignment from fastq or legacy bam files.</p>
+<p>Allows whole genome and exome alignment from fastq files.</p>
 </blockquote>
 
 <p></p>
 
-<h3 id="how-to-run-docker-based-pipeline">How-to run docker based pipeline</h3>
+<h4 id="singularity">Singularity</h4>
 
-<p>Helper script: <code>disk1/glasscore/configs/bin/glass_fastq_align</code></p>
+<ul>
+<li>Bind <em>glass_mounts</em>
 
-<p>Organize fastq or bam files and matching <code>mapping_table.tsv</code> file, e.g., for sampleX, create folder named sampleX under <em>/mnt/disk2/glassdata/inputs/fqs/</em> and then place <code>sampleX_mapping_table.tsv</code> file at <em>/mnt/disk2/glassdata/inputs/fqs/sampleX/sampleX_mapping_table.tsv</em></p>
+<ul>
+<li>Copy contents from <a href="ftp://ftp.jax.org/verhaak/glass_mounts">ftp://ftp.jax.org/verhaak/glass_mounts</a> and specify path as <code>GLASSMOUNTS</code> variable</li>
+</ul></li>
+</ul>
 
-<p>Filename of fastq files and not the full path should be written in the mapping table. Check out example mapping table at <a href="https://gist.github.com/sbamin/d86c9cd0b522a205fd128d266910a7cf">https://gist.github.com/sbamin/d86c9cd0b522a205fd128d266910a7cf</a></p>
-
-<p><code>glass_fastq_align --help</code> has following arguments to run alignment workflow. As long as data organization is preserved, only unique sample_barcode argument, <code>-s</code> is mandatory to run this workflow.</p>
-
-<pre><code class="language-bash">Usage: glass_fastq_align -s &lt;UNIQUE SAMPLE NAME&gt; -a &lt;FILENAME OF FASTQ MAPPING TABLE&gt; -m &lt;RUN MODE (WGS|WES; default: WGS)&gt; -t &lt;RUN TYPE (DRY|GO; default: DRY)&gt; -d1 &lt;PATH TO DISK1 (default:/mnt/disk1)&gt; -d1 &lt;PATH TO DISK2 (default:/mnt/disk2)&gt; | tee -a ~/glass_run.log
-
-    -h  display this help and exit
-    -s  unique sample_barcode (Required: This will be used to annotate bam headers and name output files)
-    -a  filename (and not full path) of fastq mapping table. 
-        Place this file under /mnt/disk2/glassdata/inputs/fqs/sample_barcode/ path
-        default is &lt;sample_barcode&gt;_mapping_table.tsv
-
-    -m  run mode: WGS or WES (default: WGS; select WES if input fastqs are from whole exome or other target capture based assay)
-    -t  run type: DRY or GO (default: DRY; GO will execute actual pipeline on a compute node)
-    -r  path to reference data disk1 base (default: /mnt/disk1)
-    -e  path to storage data disk2 base (default: /mnt/disk2)
-        Read http://docker.glass-consortium.org on setting up disk mounts by downloading pre-built reference datasets.
-
+<pre><code class="language-sh"># on host system, export variable where diskmounts are present, typically under /mnt
+export GLASSMOUNTS=&quot;/mnt/glass_mounts&quot;
 </code></pre>
 
-<h3 id="to-run-workflow">To run workflow:</h3>
+<ul>
+<li>Run workflow</li>
+</ul>
 
-<p>Assuming disk1 and disk2 are mounted at /mnt/, run typical dry run for WGS derived fastq for sample X using:</p>
-
-<pre><code>glass_fastq_align -s sampleX_barcode -a sampleX_mapping_table.tsv | tee -a ~/glass_run.log
+<pre><code class="language-sh">singularity run --app goglass \
+-B &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore \
+-B &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
+-B &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
+glasstools_keystone_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
 </code></pre>
 
-<p>To switch to whole exome derived fastq files, do:</p>
+<ul>
+<li>This will source commands or workflow from <code>disk1/glasscore/configs/bin/goglass</code> script with following instructions:</li>
+</ul>
 
-<pre><code>glass_fastq_align -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES | tee -a ~/glass_run.log
+<div class="notices info" ><p>For now, fastq based WGS and WES alignments can be run using Singularity based workflow. We are working on shell wrappers for other workflows with priority for variant callers.</p>
+</div>
+
+
+<pre><code class="language-sh">-m or mode: DNA (Others: RNA)
+-t or type: align (Others: mutect, mutect2, varscan2 for DNA; align, star, prada for RNA)
+-i or input: fqs for paired-end fastq (Others: bam for paired-end legacy bam files or level 1 aligned bam files from GLASS workflows for variant calling or RNAseq analyses)
+-s or unique sample barcode, preferably containing immutable uuid
+-f or mapping table: required for DNA alignments to get details on read groups for multi-lane sequenced samples
+-d or data type: WGS or WES for alignments
+-n or run type: DRY (test run) or GO (actual run)
 </code></pre>
 
-<p>To switch from dry run to an actual run on a compute node, add -t GO argument, e.g.,:</p>
+<ul>
+<li>To switch to whole genome derived fastq files, do:</li>
+</ul>
 
-<pre><code>glass_fastq_align -s sampleX_barcode -a sampleX_mapping_table.tsv -m WES -t GO | tee -a ~/glass_run.log
+<pre><code class="language-sh">... -m DNA -t align -i fqs -s sample_barcode -f sample_barcode_mapping_table.tsv -d WGS -n GO
 </code></pre>
 
-<p>PS: In all cases, raw fastq files and related mapping file must be under
-<code>/mnt/disk2/glassdata/inputs/fqs/&lt;sample_barcode&gt;/</code> directory</p>
+<ul>
+<li>For dry run, e.g.,:</li>
+</ul>
+
+<pre><code class="language-sh">... -m DNA -t align -i fqs -s sample_barcode -f mapping_table.tsv -d WGS -n DRY
+</code></pre>
+
+<ul>
+<li><p>In all cases, place raw fastq files and related mapping file under
+<code>&lt;path to disk2&gt;/glassdata/inputs/fqs/&lt;sample_barcode&gt;/</code> directory</p></li>
+
+<li><p>Default mapping table filename is <em><sample_barcode>_mapping_table.tsv</em></p></li>
+
+<li><p>Mapping table given at <code>-a</code> flag has specific tsv format as per <a href="https://software.broadinstitute.org/gatk/documentation/article.php?id=6472">https://software.broadinstitute.org/gatk/documentation/article.php?id=6472</a></p>
+
+<ul>
+<li>Strict checking for RGID tags, especially ID, PU, SM, PL and LB flags</li>
+<li>ID and PU must be unique while SM is identical across all lanes for a same sample</li>
+<li>PL should be ILLUMINA (all CAPS) or one of SOLID, LS454, HELICOS and PACBIO.</li>
+
+<li><p>LB should be identical across all lanes for a sample except different libraries were used</p>
+
+<blockquote>
+<p>NB: PU takes precedence over ID for BQSR step</p>
+</blockquote></li>
+
+<li><p>ID format should be: flowbarcode_lane (or at least unique across all lanes)</p></li>
+
+<li><p>PU format should be: flowbarcode_lane_sampleid (or at least unique across all lanes). If merging different samples at the later date, make sure to suffix sample_id in PU flag</p>
+
+<blockquote>
+<p>NB: LB is used during markduplicate step</p>
+</blockquote></li>
+</ul></li>
+</ul>
+
+<h4 id="docker">Docker</h4>
+
+<div class="notices spoiler" ><p>We are working on <code>goglass</code> wrapper for docker. Until then, please use singularity version.</p>
+</div>
+
+
+<ul>
+<li>Replace <code>mygroupname</code> and <code>00000</code> with relevant group name and ID, respectively.</li>
+</ul>
+
+<pre><code class="language-sh">docker run -e HOSTUSER=$USER -e HOSTGROUP=mygroupname \
+-e HOSTUSERID=$UID -e HOSTGROUPID=00000 \
+-v &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore \
+-v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
+-v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
+glasstools/keystone:latest goglass -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
+</code></pre>
 <div class="page-break"></div>
 <footer class=" footline" >
 	
@@ -796,20 +856,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1511214346"></script>
-    <script src="/js/perfect-scrollbar.min.js?1511214346"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1511214346"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1511214346"></script>
-    <script src="/js/featherlight.min.js?1511214346"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1511214346"></script>
-    <script src="/js/highlight.pack.js?1511214346"></script>
+    <script src="/js/clipboard.min.js?1512374433"></script>
+    <script src="/js/perfect-scrollbar.min.js?1512374433"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1512374433"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1512374433"></script>
+    <script src="/js/featherlight.min.js?1512374433"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1512374433"></script>
+    <script src="/js/highlight.pack.js?1512374433"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1511214346"></script>
-    <script src="/js/learn.js?1511214346"></script>
-    <script src="/js/hugo-learn.js?1511214346"></script>
+    <script src="/js/modernizr.custom.71422.js?1512374433"></script>
+    <script src="/js/learn.js?1512374433"></script>
+    <script src="/js/hugo-learn.js?1512374433"></script>
 
-    <link href="/mermaid/mermaid.css?1511214346" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1511214346"></script>
+    <link href="/mermaid/mermaid.css?1512374433" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1512374433"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
