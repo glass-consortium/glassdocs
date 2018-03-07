@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.27.1" />
     <meta name="description" content="Documentation for GLASS Consortium Workflows">
 <meta name="author" content="Samir B. Amin">
 
@@ -19,17 +19,17 @@
     <title>Setup Singularity Image :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1512374444" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1512374444" rel="stylesheet">
-    <link href="/css/hybrid.css?1512374444" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1512374444" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1512374444" rel="stylesheet">
-    <link href="/css/auto-complete.css?1512374444" rel="stylesheet">
-    <link href="/css/theme.css?1512374444" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1512374444" rel="stylesheet">
+    <link href="/css/nucleus.css?1520438476" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1520438476" rel="stylesheet">
+    <link href="/css/hybrid.css?1520438476" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1520438476" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1520438476" rel="stylesheet">
+    <link href="/css/auto-complete.css?1520438476" rel="stylesheet">
+    <link href="/css/theme.css?1520438476" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1520438476" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1512374444"></script>
+    <script src="/js/jquery-2.x.min.js?1520438476"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -80,14 +80,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1512374444"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1512374444"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1520438476"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1520438476"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1512374444"></script>
+<script type="text/javascript" src="/js/search.js?1520438476"></script>
 
     
   </div>
@@ -490,15 +490,20 @@
 <ul>
 <li>
 <ul>
-<li><a href="#singularity-image-for-glass-workflows">Singularity image for GLASS workflows</a>
+<li><a href="#how-to-install-singularity">How to install Singularity</a>
 <ul>
 <li>
 <ul>
-<li><a href="#current-build">Current Build</a></li>
-</ul></li>
-<li><a href="#how-to-install-singularity">How to install Singularity</a>
-<ul>
 <li><a href="#manual-build">Manual build</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#singularity-image-for-glass-workflows">Singularity image for GLASS workflows</a>
+<ul>
+<li><a href="#download-current-build">Download current Build</a></li>
+<li><a href="#installation-on-nodes-without-internet-access">Installation on nodes without internet access</a>
+<ul>
+<li><a href="#on-an-internet-enabled-machine-e-g-login-node">On an internet-enabled machine, e.g., login node</a></li>
+<li><a href="#on-a-non-internet-machine-e-g-compute-node">On a non-internet machine, e.g., compute node</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -541,40 +546,7 @@
     </div>
 </div>
 
-<h2 id="singularity-image-for-glass-workflows">Singularity image for GLASS workflows</h2>
-
-<blockquote>
-<p>18-Nov-2017<br />
-v1.1.2s2</p>
-</blockquote>
-
-<p>Build details for <code>glass-consortium/glasstools</code> images.</p>
-
-<p><strong>PS:</strong> Documentation to run workflows is not yet ready. Visit <a href="https://docker.glass-consortium.org">https://docker.glass-consortium.org</a> for updates.</p>
-
-<h4 id="current-build">Current Build</h4>
-
-<blockquote>
-<p>See below on how to install Singularity version: <code>2.4-install_718360bb.g718360bb</code></p>
-</blockquote>
-
-<pre><code class="language-sh">singularity pull shub://glass-consortium/glasstools:beta
-</code></pre>
-
-<p>Automated build, when successfully built is available at Singularity Hub: <a href="https://www.singularity-hub.org/collections/262">https://www.singularity-hub.org/collections/262</a> with image tag: <code>glass-consortium/glasstools:beta</code></p>
-
-<ul>
-<li>Download using <a href="http://singularity.lbl.gov">Singularity</a>, v2.4 or higher.</li>
-<li>Avoid running container as root. Singularity images does not require root privileges to run workflows.</li>
-<li>Default bind while running workflow is user ${HOME}.</li>
-<li>For better potability and disk mounts, ask your system admin to configure <code>/etc/singularity/singularity.conf</code> and set <code>enable overlay = yes</code>. Read <a href="http://singularity.lbl.gov/docs-mount">http://singularity.lbl.gov/docs-mount</a> for details.</li>
-</ul>
-
-<p>Visit <a href="/setup/diskmounts/">Disk Mounts</a> section for more on how to mount host disk volumes and start workflows.</p>
-
-<hr />
-
-<h3 id="how-to-install-singularity">How to install Singularity</h3>
+<h2 id="how-to-install-singularity">How to install Singularity</h2>
 
 <ul>
 <li>One time installation, <strong>requires admin privileges</strong></li>
@@ -646,6 +618,123 @@ cd build
 
 singularity build glasstools_keystone_beta.simg Singularity.beta
 singularity inspect glasstools_keystone_beta.simg
+</code></pre>
+
+<hr />
+
+<h2 id="singularity-image-for-glass-workflows">Singularity image for GLASS workflows</h2>
+
+<blockquote>
+<p>18-Nov-2017<br />
+v1.1.2s2</p>
+</blockquote>
+
+<p>Build details for <code>glass-consortium/glasstools</code> images.</p>
+
+<p><strong>PS:</strong> Documentation to run workflows is not yet ready. Visit <a href="https://docker.glass-consortium.org">https://docker.glass-consortium.org</a> for updates.</p>
+
+<h3 id="download-current-build">Download current Build</h3>
+
+<pre><code class="language-sh">singularity pull shub://glass-consortium/glasstools:beta
+</code></pre>
+
+<p>Automated build, when successfully built is available at Singularity Hub: <a href="https://www.singularity-hub.org/collections/262">https://www.singularity-hub.org/collections/262</a> with image tag: <code>glass-consortium/glasstools:beta</code></p>
+
+<ul>
+<li>Download using <a href="http://singularity.lbl.gov">Singularity</a>, v2.4 or higher.</li>
+<li>Avoid running container as root. Singularity images does not require root privileges to run workflows.</li>
+<li>Default bind while running workflow is user ${HOME}.</li>
+<li>For better potability and disk mounts, ask your system admin to configure <code>/etc/singularity/singularity.conf</code> and set <code>enable overlay = yes</code>. Read <a href="http://singularity.lbl.gov/docs-mount">http://singularity.lbl.gov/docs-mount</a> for details.</li>
+</ul>
+
+<p>Visit <a href="/setup/diskmounts/">Disk Mounts</a> section for more on how to mount host disk volumes and start workflows.</p>
+
+<h3 id="installation-on-nodes-without-internet-access">Installation on nodes without internet access</h3>
+
+<ul>
+<li>If HPC has limited or no internet access, you can install GLASS workflows by first downloading singularity image on a different, internet-enabled machine and then moving downloaded image to machines with no internet access.</li>
+</ul>
+
+<h4 id="on-an-internet-enabled-machine-e-g-login-node">On an internet-enabled machine, e.g., login node</h4>
+
+<ul>
+<li>Following command will download singularity image with current GLASS workflows to a default <a href="http://singularity.lbl.gov/build-environment#cache-folders">singularity cache directory</a><sup><a href="http://singularity.lbl.gov/build-environment#cache">1</a></sup>. Alternately, you can specify alternate location for cache directory by environment variable <code>SINGULARITY_CACHEDIR</code>, i.e., one with enough space to store cache instead of user home directory.</li>
+</ul>
+
+<pre><code class="language-sh">SINGULARITY_CACHEDIR=/scratch/singularity/cache
+export SINGULARITY_CACHEDIR
+mkdir -p &quot;${SINGULARITY_CACHEDIR}&quot;
+
+## download singularity image with current GLASS workflows
+singularity pull shub://glass-consortium/glasstools:beta
+
+cd /scratch/singularity/cache
+md5sum glass-consortium-glasstools-master-beta.simg
+
+## inspect image for version: v1.1.2s2
+singularity inspect glass-consortium-glasstools-master-beta.simg
+</code></pre>
+
+<ul>
+<li>After a successful pull command, you should have a singularity image, <em>glass-consortium-glasstools-master-beta.simg</em> of approx. 1.3 GB size with md5sum of e3fcd575b10b6869cbf9faa5d98acdb4.</li>
+<li>If you are unable to download an image using <code>singularity pull</code> command, you can download an image using ftp command.</li>
+</ul>
+
+<pre><code class="language-sh">wget -P &quot;${SINGULARITY_CACHEDIR}&quot; ftp://ftp.jax.org/verhaak/image/singularity/glass-consortium-glasstools-master-beta.simg
+</code></pre>
+
+<h4 id="on-a-non-internet-machine-e-g-compute-node">On a non-internet machine, e.g., compute node</h4>
+
+<ul>
+<li><p>Please note that nodes with non-internet access must have <code>singularity</code> software installed using installation steps above. This is not required in most cases as login and compute nodes are on shared file system, and hence, <code>singularity</code> command and downloaded GLASS image on an login node can be accessed by all of compute nodes.</p></li>
+
+<li><p>Create a singularity cache directory to store downloaded GLASS workflows image</p></li>
+</ul>
+
+<pre><code class="language-sh">SINGULARITY_CACHEDIR=/scratch/singularity/cache
+export SINGULARITY_CACHEDIR
+mkdir -p &quot;${SINGULARITY_CACHEDIR}&quot;
+</code></pre>
+
+<ul>
+<li>Copy singularity image over local area network (LAN) connection from an internet-enabled machine (www-node) to non-internet node (lan-node)</li>
+</ul>
+
+<pre><code class="language-sh">rsync -avhP www-node:/scratch/singularity/cache/ lan-node:/scratch/singularity/cache/
+
+## image can be renamed
+mv glass-consortium-glasstools-master-beta.simg glasstools_keystone_beta.simg
+
+## inspect image
+cd &quot;${SINGULARITY_CACHEDIR}&quot;
+singularity inspect glasstools_keystone_beta.simg
+</code></pre>
+
+<ul>
+<li>Inspect log for <code>v1.1.2s2</code></li>
+</ul>
+
+<pre><code>{
+    &quot;WEBSITE&quot;: &quot;https://docker.glass-consortium.org&quot;,
+    &quot;org.label-schema.usage.singularity.deffile.bootstrap&quot;: &quot;docker&quot;,
+    &quot;MAINTAINER&quot;: &quot;Samir B. Amin, tweet: sbamin, web: https://sbamin.com&quot;,
+    &quot;NAME&quot;: &quot;glasstools:beta&quot;,
+    &quot;LICENSE&quot;: &quot;https://github.com/glass-consortium/glasstools/blob/master/LICENSE&quot;,
+    &quot;org.label-schema.usage&quot;: &quot;/.singularity.d/runscript.help&quot;,
+    &quot;org.label-schema.schema-version&quot;: &quot;1.0&quot;,
+    &quot;org.label-schema.build-date&quot;: &quot;2017-11-18T13:35:49+00:00&quot;,
+    &quot;org.label-schema.usage.singularity.deffile.includecmd&quot;: &quot;no&quot;,
+    &quot;VERSION&quot;: &quot;v1.1.2s2&quot;,
+    &quot;org.label-schema.usage.singularity.deffile.from&quot;: &quot;ubuntu:16.04&quot;,
+    &quot;org.label-schema.usage.singularity.deffile&quot;: &quot;Singularity.beta&quot;,
+    &quot;SOURCECODE&quot;: &quot;https://github.com/glass-consortium/glasstools&quot;,
+    &quot;org.label-schema.usage.singularity.runscript.help&quot;: &quot;/.singularity.d/runscript.help&quot;,
+    &quot;org.label-schema.usage.singularity.version&quot;: &quot;2.4-feature-squashbuild-secbuild.g818b648&quot;,
+    &quot;CONTACT&quot;: &quot;Roel Verhaak, tweet: roelverhaak, web: https://www.jax.org/verhaak-lab&quot;,
+    &quot;org.label-schema.build-size&quot;: &quot;3629MB&quot;,
+    &quot;ISSUES&quot;: &quot;https://github.com/glass-consortium/glassdocs/issues&quot;,
+    &quot;DESCRIPTION&quot;: &quot;Singularity image to run GLASS consortium workflows&quot;
+}
 </code></pre>
 <div class="page-break"></div>
 <footer class=" footline" >
@@ -870,20 +959,20 @@ singularity inspect glasstools_keystone_beta.simg
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1512374444"></script>
-    <script src="/js/perfect-scrollbar.min.js?1512374444"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1512374444"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1512374444"></script>
-    <script src="/js/featherlight.min.js?1512374444"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1512374444"></script>
-    <script src="/js/highlight.pack.js?1512374444"></script>
+    <script src="/js/clipboard.min.js?1520438476"></script>
+    <script src="/js/perfect-scrollbar.min.js?1520438476"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1520438476"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1520438476"></script>
+    <script src="/js/featherlight.min.js?1520438476"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1520438476"></script>
+    <script src="/js/highlight.pack.js?1520438476"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1512374444"></script>
-    <script src="/js/learn.js?1512374444"></script>
-    <script src="/js/hugo-learn.js?1512374444"></script>
+    <script src="/js/modernizr.custom.71422.js?1520438476"></script>
+    <script src="/js/learn.js?1520438476"></script>
+    <script src="/js/hugo-learn.js?1520438476"></script>
 
-    <link href="/mermaid/mermaid.css?1512374444" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1512374444"></script>
+    <link href="/mermaid/mermaid.css?1520438476" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1520438476"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
