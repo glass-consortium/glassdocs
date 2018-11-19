@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.49" />
     <meta name="description" content="GLASS Workflows">
 <meta name="author" content="Samir B. Amin">
 
@@ -19,17 +19,17 @@
     <title>HOME :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1532880844" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1532880844" rel="stylesheet">
-    <link href="/css/hybrid.css?1532880844" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1532880844" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1532880844" rel="stylesheet">
-    <link href="/css/auto-complete.css?1532880844" rel="stylesheet">
-    <link href="/css/theme.css?1532880844" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1532880844" rel="stylesheet">
+    <link href="/css/nucleus.css?1542655436" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1542655436" rel="stylesheet">
+    <link href="/css/hybrid.css?1542655436" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1542655436" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1542655436" rel="stylesheet">
+    <link href="/css/auto-complete.css?1542655436" rel="stylesheet">
+    <link href="/css/theme.css?1542655436" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1542655436" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1532880844"></script>
+    <script src="/js/jquery-2.x.min.js?1542655436"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -67,7 +67,7 @@
   <div id="header-wrapper">
     <div id="header">
        
-	<p><a href="http://glass-consortium.org" title="GLASS Consortium Home"><img src="/images/glass_logo_globe.png" alt="glass logo" /></a>
+	<p><a href="http://glass-consortium.org" title="GLASS Consortium Home"><img src="/images/GLASS-logo2.png" alt="glass logo" /></a>
 <a href="/" title="Documentation Home">docker.glass-consortium.org</a></p>
  
 
@@ -80,14 +80,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1532880844"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1532880844"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1542655436"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1542655436"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1532880844"></script>
+<script type="text/javascript" src="/js/search.js?1542655436"></script>
 
     
   </div>
@@ -481,224 +481,24 @@
     </div>
 </div>
 
-<p>This website hosts how-to manuals for running various analysis pipelines for the <a href="http://glass-consortium.org" title="Consortium Homepage">GLASS consortium</a>.</p>
-
-<h5 id="preprint-hahahugoshortcode-0xc4203eaf00-2-hbhb-https-www-biorxiv-org-content-early-2017-10-02-196139"><a href="https://www.biorxiv.org/content/early/2017/10/02/196139">Preprint 
+<h5 id="preprint-hahahugoshortcode-0xc000330100-2-hbhb-https-www-biorxiv-org-content-early-2017-10-02-196139"><a href="https://www.biorxiv.org/content/early/2017/10/02/196139">Preprint 
 
 <span class="ai ai-biorxiv" aria-hidden="true"></span>
 
 
 </a></h5>
 
-<div class="notices info" ><p>We are moving to Singularity based workflows for better compatibility with academic IT infrastructure. You can now download and try beta build of Singularity image at <a href="https://github.com/glass-consortium/glasstools">https://github.com/glass-consortium/glasstools</a><br />
-Both Docker and Singularity images are near identical with a few changes in ENTRYPOINT and CMD specifications. While docker and Singularity images are stable enough to execute workflows, documentation and run scripts (shell wrappers) to run all of workflows are not ready yet for production release. Run scripts reside outside of image and (when available via <a href="/setup/diskmounts/" title="How to mount host disk volumes?">user mounted disk volumes</a>) are sourced by image entrypoint/cmd specifications at the execution of workflow. We will soon update documentation to run workflows.</p>
+<h4 id="phase-1-data-release">Phase 1 data release</h4>
+
+<div class="notices info" ><p>Following GLASS Face2Face meetup at <a href="https://academic.oup.com/neuro-oncology/article-abstract/20/suppl_6/vi76/5153719?redirectedFrom=fulltext">SNO 2018 meeting</a>, we have now migrated to an updated and stable version of analysis workflows. To access updated workflows and the first release of mutation and clinical annotation dataset, you will need a prior approval to access <a href="https://synapse.org/glass">https://synapse.org/glass</a> data portal. Please contact Prof. <a href="https://www.jax.org/research-and-faculty/faculty/roel-verhaak">Roel Verhaak</a> for additional details.</p>
 </div>
 
 
-<p><div class="notices note" ><p>Please report issues related to setting up Docker/Singularity image and running workflows at <a href="https://github.com/glass-consortium/glassdocs/issues">https://github.com/glass-consortium/glassdocs/issues</a></p>
+<div class="notices note" ><p>This website now hosts a legacy version of workflows which were containerized in docker/singularity. Until we containerizing updated snakemake based workflows in containers, documentation on this website should be considered outdated.</p>
 </div>
-</p>
 
 
-
-
-
-
-
-
-<ul class="children children-h3">
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="/setup/" > Set Up</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>  Setup Docker Image  Download and setup docker image: glasstools/keystone
-
- Setup Singularity Image  Download and setup Singularity image: glass-consortium/glasstools:beta
-
- Setup Disk Mounts  Prepare disk mounts on the host system for use with docker containers
-
-  </p>
-				
-			
-		
-
-		
-			
-
-	
-    
-	    
-    
-    
-
-	
-		
-	
-
-	
-
-			
-
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="/howto/" > How To</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>  Workflows  
- TidyData   Backup level 1 realigned bam files Backup level 2 or 3 output files for downstream analyses  
-  </p>
-				
-			
-		
-
-		
-			
-
-	
-    
-	    
-    
-    
-
-	
-		
-	
-
-	
-
-			
-
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="/credits/" >Credits</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>data infrastructure committee</p>
-				
-			
-		
-
-		
-			
-
-	
-    
-    
-
-	
-		
-	
-
-	
-
-			
-
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="/_header/" >header</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>sidebar header</p>
-				
-			
-		
-
-		
-			
-
-	
-    
-    
-
-	
-		
-	
-
-	
-
-			
-
-		
-	
-
-	
-</ul>
-
-
-
-
+<p>GLASS logo is from a royalty-free icon made by Darius Dan of <a href="https://www.flaticon.com">flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 BY</a></p>
 	
   
         
@@ -914,20 +714,20 @@ Both Docker and Singularity images are near identical with a few changes in ENTR
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1532880845"></script>
-    <script src="/js/perfect-scrollbar.min.js?1532880845"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1532880845"></script>
-    <script src="/js/jquery.sticky.js?1532880845"></script>
-    <script src="/js/featherlight.min.js?1532880845"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1532880845"></script>
-    <script src="/js/highlight.pack.js?1532880845"></script>
+    <script src="/js/clipboard.min.js?1542655436"></script>
+    <script src="/js/perfect-scrollbar.min.js?1542655436"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1542655436"></script>
+    <script src="/js/jquery.sticky.js?1542655436"></script>
+    <script src="/js/featherlight.min.js?1542655436"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1542655436"></script>
+    <script src="/js/highlight.pack.js?1542655436"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1532880845"></script>
-    <script src="/js/learn.js?1532880845"></script>
-    <script src="/js/hugo-learn.js?1532880845"></script>
+    <script src="/js/modernizr.custom.71422.js?1542655436"></script>
+    <script src="/js/learn.js?1542655436"></script>
+    <script src="/js/hugo-learn.js?1542655436"></script>
 
-    <link href="/mermaid/mermaid.css?1532880845" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1532880845"></script>
+    <link href="/mermaid/mermaid.css?1542655436" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1542655436"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
