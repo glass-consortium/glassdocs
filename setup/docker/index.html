@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="generator" content="Hugo 0.49" />
     <meta name="description" content="Documentation for GLASS Consortium Workflows">
 <meta name="author" content="Samir B. Amin">
 
@@ -19,17 +19,17 @@
     <title>Setup Docker Image :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1571754265" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1571754265" rel="stylesheet">
-    <link href="/css/hybrid.css?1571754265" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1571754265" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1571754265" rel="stylesheet">
-    <link href="/css/auto-complete.css?1571754265" rel="stylesheet">
-    <link href="/css/theme.css?1571754265" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1571754265" rel="stylesheet">
+    <link href="/css/nucleus.css?1542740567" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1542740567" rel="stylesheet">
+    <link href="/css/hybrid.css?1542740567" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1542740567" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1542740567" rel="stylesheet">
+    <link href="/css/auto-complete.css?1542740567" rel="stylesheet">
+    <link href="/css/theme.css?1542740567" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1542740567" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1571754265"></script>
+    <script src="/js/jquery-2.x.min.js?1542740567"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -66,10 +66,10 @@
 
   <div id="header-wrapper">
     <div id="header">
-      
-<span style="font-size:smaller">
-	<a id="logo" href="/"><i class="fa fa-gears" style="font-size:large"> GLASS Consortium</i>
-	</a>
+       
+	<p><a href="https://www.glass-consortium.org" title="GLASS Consortium Home"><img src="/images/GLASS-logo2.png" alt="glass logo" /></a>
+<a href="/" title="Documentation Home">docker.glass-consortium.org</a></p>
+ 
 
 
     </div>
@@ -80,14 +80,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1571754265"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1571754265"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1542740567"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1542740567"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1571754265"></script>
+<script type="text/javascript" src="/js/search.js?1542740567"></script>
 
     
   </div>
@@ -524,19 +524,20 @@
 
 <p>Download and setup docker image: <em>glasstools/keystone</em></p>
 
+<p></p>
+
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
         <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
         <span>
         
-        
-        Looking for Singularity image?
-        
-        </span>
+    	
+    	Looking for Singularity image?
+    	
+    	</span>
     </div>
     <div class="expand-content" style="display: none;">
-        
-Visit [Singularity](/setup/singularity/) page for installation and configuring Singularity based workflows.
+        <p>Visit <a href="/setup/singularity/">Singularity</a> page for installation and configuring Singularity based workflows.</p>
 
     </div>
 </div>
@@ -552,9 +553,12 @@ Visit [Singularity](/setup/singularity/) page for installation and configuring S
 docker pull glasstools/keystone:1.2.2
 </code></pre>
 
-<p><span class="fa fa-docker aln-middle"   aria-hidden="true"></span></p>
+<p>
 
-<p><a href="https://hub.docker.com/r/glasstools/keystone">https://hub.docker.com/r/glasstools/keystone</a></p>
+<span class="fa fa-docker aln-middle"   aria-hidden="true"></span>
+
+
+ <a href="https://hub.docker.com/r/glasstools/keystone">https://hub.docker.com/r/glasstools/keystone</a></p>
 
 <h3 id="test-run">Test run</h3>
 
@@ -612,7 +616,8 @@ Running userid_mapping.sh script</p>
 </code></pre>
 
 <ul>
-<li><p>Note that docker container running as a <code>glassuser</code> has not valid permission to access mounted host volumes.</p>
+<li>Note that docker container running as a <code>glassuser</code> has not valid permission to access mounted host volumes.</li>
+</ul>
 
 <pre><code>User and Group ID mapping: DISABLE
 
@@ -627,8 +632,7 @@ drwxr-xr-x 21 root  root  4.0K Oct  7 06:15 ..
 drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 glasscore
 drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 glassdata
 drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 scratch
-</code></pre></li>
-</ul>
+</code></pre>
 <div class="page-break"></div>
 <footer class=" footline" >
 	
@@ -851,20 +855,20 @@ drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 scratch
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1571754265"></script>
-    <script src="/js/perfect-scrollbar.min.js?1571754265"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1571754265"></script>
-    <script src="/js/jquery.sticky.js?1571754265"></script>
-    <script src="/js/featherlight.min.js?1571754265"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1571754265"></script>
-    <script src="/js/highlight.pack.js?1571754265"></script>
+    <script src="/js/clipboard.min.js?1542740567"></script>
+    <script src="/js/perfect-scrollbar.min.js?1542740567"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1542740567"></script>
+    <script src="/js/jquery.sticky.js?1542740567"></script>
+    <script src="/js/featherlight.min.js?1542740567"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1542740567"></script>
+    <script src="/js/highlight.pack.js?1542740567"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1571754265"></script>
-    <script src="/js/learn.js?1571754265"></script>
-    <script src="/js/hugo-learn.js?1571754265"></script>
+    <script src="/js/modernizr.custom.71422.js?1542740567"></script>
+    <script src="/js/learn.js?1542740567"></script>
+    <script src="/js/hugo-learn.js?1542740567"></script>
 
-    <link href="/mermaid/mermaid.css?1571754265" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1571754265"></script>
+    <link href="/mermaid/mermaid.css?1542740567" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1542740567"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

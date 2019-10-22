@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="generator" content="Hugo 0.49" />
     <meta name="description" content="Documentation for GLASS Consortium Workflows">
 <meta name="author" content="Samir B. Amin">
 
@@ -19,17 +19,17 @@
     <title>DNA Alignment :: GLASS Workflows</title>
     
     
-    <link href="/css/nucleus.css?1571754265" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1571754265" rel="stylesheet">
-    <link href="/css/hybrid.css?1571754265" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1571754265" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1571754265" rel="stylesheet">
-    <link href="/css/auto-complete.css?1571754265" rel="stylesheet">
-    <link href="/css/theme.css?1571754265" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1571754265" rel="stylesheet">
+    <link href="/css/nucleus.css?1542740567" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1542740567" rel="stylesheet">
+    <link href="/css/hybrid.css?1542740567" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1542740567" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1542740567" rel="stylesheet">
+    <link href="/css/auto-complete.css?1542740567" rel="stylesheet">
+    <link href="/css/theme.css?1542740567" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1542740567" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1571754265"></script>
+    <script src="/js/jquery-2.x.min.js?1542740567"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -66,10 +66,10 @@
 
   <div id="header-wrapper">
     <div id="header">
-      
-<span style="font-size:smaller">
-	<a id="logo" href="/"><i class="fa fa-gears" style="font-size:large"> GLASS Consortium</i>
-	</a>
+       
+	<p><a href="https://www.glass-consortium.org" title="GLASS Consortium Home"><img src="/images/GLASS-logo2.png" alt="glass logo" /></a>
+<a href="/" title="Documentation Home">docker.glass-consortium.org</a></p>
+ 
 
 
     </div>
@@ -80,14 +80,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1571754265"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1571754265"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1542740567"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1542740567"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1571754265"></script>
+<script type="text/javascript" src="/js/search.js?1542740567"></script>
 
     
   </div>
@@ -528,28 +528,32 @@
 <p>Allows whole genome and exome alignment from fastq files.</p>
 </blockquote>
 
+<p></p>
+
 <h4 id="singularity">Singularity</h4>
 
 <ul>
-<li><p>Bind <em>glass_mounts</em></p>
+<li>Bind <em>glass_mounts</em>
 
 <ul>
-<li><p>Copy contents from <a href="ftp://ftp.jax.org/verhaak/glass_mounts">ftp://ftp.jax.org/verhaak/glass_mounts</a> and specify path as <code>GLASSMOUNTS</code> variable</p>
+<li>Copy contents from <a href="ftp://ftp.jax.org/verhaak/glass_mounts">ftp://ftp.jax.org/verhaak/glass_mounts</a> and specify path as <code>GLASSMOUNTS</code> variable</li>
+</ul></li>
+</ul>
 
 <pre><code class="language-sh"># on host system, export variable where diskmounts are present, typically under /mnt
 export GLASSMOUNTS=&quot;/mnt/glass_mounts&quot;
-</code></pre></li>
-</ul></li>
+</code></pre>
 
-<li><p>Run workflow</p>
+<ul>
+<li>Run workflow</li>
+</ul>
 
 <pre><code class="language-sh">singularity run --app goglass \
 -B &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore \
 -B &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
 -B &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
 glasstools_keystone_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
-</code></pre></li>
-</ul>
+</code></pre>
 
 <blockquote>
 <p>If command fails because it can not find <em>glasstools_keystone_beta.simg</em>, check if environment variable, <code>SINGULARITY_CACHEDIR</code> exists and it contains image named, <em>glasstools_keystone_beta.simg</em>. Alternately, add full path to image while running workflow, i.e., <code>&quot;${SINGULARITY_CACHEDIR}&quot;/glasstools_keystone_beta.simg</code></p>
@@ -559,8 +563,9 @@ glasstools_keystone_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample
 <li>This will source commands or workflow from <code>disk1/glasscore/configs/bin/goglass</code> script with following instructions:</li>
 </ul>
 
-<div class="notices info" >For now, fastq based WGS and WES alignments can be run using Singularity based workflow. We are working on shell wrappers for other workflows with priority for variant callers.
+<div class="notices info" ><p>For now, fastq based WGS and WES alignments can be run using Singularity based workflow. We are working on shell wrappers for other workflows with priority for variant callers.</p>
 </div>
+
 
 <pre><code class="language-sh">-m or mode: DNA (Others: RNA)
 -t or type: align (Others: mutect, mutect2, varscan2 for DNA; align, star, prada for RNA)
@@ -572,16 +577,20 @@ glasstools_keystone_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample
 </code></pre>
 
 <ul>
-<li><p>To switch to whole genome derived fastq files, do:</p>
+<li>To switch to whole genome derived fastq files, do:</li>
+</ul>
 
 <pre><code class="language-sh">... -m DNA -t align -i fqs -s sample_barcode -f sample_barcode_mapping_table.tsv -d WGS -n GO
-</code></pre></li>
+</code></pre>
 
-<li><p>For dry run, e.g.,:</p>
+<ul>
+<li>For dry run, e.g.,:</li>
+</ul>
 
 <pre><code class="language-sh">... -m DNA -t align -i fqs -s sample_barcode -f mapping_table.tsv -d WGS -n DRY
-</code></pre></li>
+</code></pre>
 
+<ul>
 <li><p>In all cases, place raw fastq files and related mapping file under
 <code>&lt;path to disk2&gt;/glassdata/inputs/fqs/&lt;sample_barcode&gt;/</code> directory</p></li>
 
@@ -612,11 +621,13 @@ glasstools_keystone_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample
 
 <h4 id="docker">Docker</h4>
 
-<div class="notices spoiler" >We are working on `goglass` wrapper for docker. Until then, please use singularity version.
+<div class="notices spoiler" ><p>We are working on <code>goglass</code> wrapper for docker. Until then, please use singularity version.</p>
 </div>
 
+
 <ul>
-<li><p>Replace <code>mygroupname</code> and <code>00000</code> with relevant group name and ID, respectively.</p>
+<li>Replace <code>mygroupname</code> and <code>00000</code> with relevant group name and ID, respectively.</li>
+</ul>
 
 <pre><code class="language-sh">docker run -e HOSTUSER=$USER -e HOSTGROUP=mygroupname \
 -e HOSTUSERID=$UID -e HOSTGROUPID=00000 \
@@ -624,8 +635,7 @@ glasstools_keystone_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample
 -v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
 -v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
 glasstools/keystone:latest goglass -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
-</code></pre></li>
-</ul>
+</code></pre>
 <div class="page-break"></div>
 <footer class=" footline" >
 	
@@ -852,20 +862,20 @@ glasstools/keystone:latest goglass -m dna -t align -i fqs -s sample_barcode -f s
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1571754266"></script>
-    <script src="/js/perfect-scrollbar.min.js?1571754266"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1571754266"></script>
-    <script src="/js/jquery.sticky.js?1571754266"></script>
-    <script src="/js/featherlight.min.js?1571754266"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1571754266"></script>
-    <script src="/js/highlight.pack.js?1571754266"></script>
+    <script src="/js/clipboard.min.js?1542740567"></script>
+    <script src="/js/perfect-scrollbar.min.js?1542740567"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1542740567"></script>
+    <script src="/js/jquery.sticky.js?1542740567"></script>
+    <script src="/js/featherlight.min.js?1542740567"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1542740567"></script>
+    <script src="/js/highlight.pack.js?1542740567"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1571754266"></script>
-    <script src="/js/learn.js?1571754266"></script>
-    <script src="/js/hugo-learn.js?1571754266"></script>
+    <script src="/js/modernizr.custom.71422.js?1542740567"></script>
+    <script src="/js/learn.js?1542740567"></script>
+    <script src="/js/hugo-learn.js?1542740567"></script>
 
-    <link href="/mermaid/mermaid.css?1571754266" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1571754266"></script>
+    <link href="/mermaid/mermaid.css?1542740567" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1542740567"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
