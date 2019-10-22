@@ -8,53 +8,47 @@
   </url>
   
   <url>
-    <loc>/oldhome/</loc>
-    <lastmod>2018-11-19T00:00:00+00:00</lastmod>
+    <loc>/deprecated/setup/</loc>
   </url>
   
   <url>
-    <loc>/setup/</loc>
+    <loc>/deprecated/setup/docker/</loc>
   </url>
   
   <url>
-    <loc>/setup/docker/</loc>
+    <loc>/deprecated/setup/singularity/</loc>
   </url>
   
   <url>
-    <loc>/setup/singularity/</loc>
+    <loc>/deprecated/setup/diskmounts/</loc>
   </url>
   
   <url>
-    <loc>/setup/diskmounts/</loc>
+    <loc>/deprecated/howto/workflows/</loc>
   </url>
   
   <url>
-    <loc>/howto/workflows/</loc>
+    <loc>/deprecated/howto/workflows/dna_alignment/</loc>
   </url>
   
   <url>
-    <loc>/howto/workflows/dna_alignment/</loc>
+    <loc>/deprecated/howto/tidydata/</loc>
   </url>
   
   <url>
-    <loc>/howto/tidydata/</loc>
+    <loc>/deprecated/howto/workflows/variant_calling/</loc>
   </url>
   
   <url>
-    <loc>/howto/workflows/variant_calling/</loc>
+    <loc>/deprecated/howto/workflows/rnaseq/</loc>
   </url>
   
   <url>
-    <loc>/howto/workflows/rnaseq/</loc>
-  </url>
-  
-  <url>
-    <loc>/howto/</loc>
+    <loc>/deprecated/howto/</loc>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -62,12 +56,15 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <priority>0</priority>
+    <loc>/deprecated/</loc>
   </url>
   
   <url>
     <loc>/_header/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
   </url>
   
 </urlset>
