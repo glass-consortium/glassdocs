@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="generator" content="Hugo 0.58.3" />
-    <meta name="description" content="GLASS Workflows">
+    <meta name="description" content="Documentation for GLASS Consortium Workflows">
 <meta name="author" content="Samir B. Amin">
 
     
@@ -16,7 +16,7 @@
 
 
 
-    <title>HOME :: GLASS Workflows</title>
+    <title>DNA Alignment :: GLASS Workflows</title>
     
     
     <link href="/css/nucleus.css?1571756099" rel="stylesheet">
@@ -59,7 +59,7 @@
 <link href="/css/user.css" rel="stylesheet">
 
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/deprecated/howto/workflows/dna_alignment/">
     <nav id="sidebar" class="showVisitedLinks no-print">
 
 
@@ -104,7 +104,7 @@
   
     
     <li data-nav-id="/deprecated/" title="Deprecateds" class="dd-item 
-        
+        parent
         
         
         ">
@@ -249,7 +249,7 @@
   
     
     <li data-nav-id="/deprecated/howto/" title=" How To" class="dd-item 
-        
+        parent
         
         
         ">
@@ -278,7 +278,7 @@
   
     
     <li data-nav-id="/deprecated/howto/workflows/" title="Workflows" class="dd-item 
-        
+        parent
         
         
         ">
@@ -307,8 +307,8 @@
   
     
     <li data-nav-id="/deprecated/howto/workflows/dna_alignment/" title="DNA Alignment" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/deprecated/howto/workflows/dna_alignment/">
@@ -489,58 +489,194 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>HOME</a> > <a href='/deprecated/'>Deprecateds</a> > <a href='/deprecated/howto/'> How To</a> > <a href='/deprecated/howto/workflows/'>Workflows</a> > DNA Alignment
+          
+         
+          
+         
+          
+         
+          
+         
+          
+           
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#singularity">Singularity</a></li>
+<li><a href="#docker">Docker</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
 
         
         <div id="body-inner" class="printwide">
           
+            <h1>DNA Alignment</h1>
+          
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
 
- 
+<blockquote>
+<p>Allows whole genome and exome alignment from fastq files.</p>
+</blockquote>
 
+<h4 id="singularity">Singularity</h4>
 
-<h4 id="glioma-longitudinal-analysis-consortium">Glioma Longitudinal AnalySiS Consortium</h4>
+<ul>
+<li><p>Bind <em>glass_mounts</em></p>
 
-<div class="expand">
-    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
-        <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
-        <span>
-        
-        
-        Issues loading website contents?
-        
-        </span>
-    </div>
-    <div class="expand-content" style="display: none;">
-        
-If website is not loading all of its contents or have formatting issues, you may visit mirror website at http://guide.glass-consortium.org
+<ul>
+<li><p>Copy contents from <a href="ftp://ftp.jax.org/verhaak/glass_mounts">ftp://ftp.jax.org/verhaak/glass_mounts</a> and specify path as <code>GLASSMOUNTS</code> variable</p>
 
-    </div>
+<pre><code class="language-sh"># on host system, export variable where diskmounts are present, typically under /mnt
+export GLASSMOUNTS=&quot;/mnt/glass_mounts&quot;
+</code></pre></li>
+</ul></li>
+
+<li><p>Run workflow</p>
+
+<pre><code class="language-sh">singularity run --app goglass \
+-B &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore \
+-B &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
+-B &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
+glasstools_keystone_beta.simg -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
+</code></pre></li>
+</ul>
+
+<blockquote>
+<p>If command fails because it can not find <em>glasstools_keystone_beta.simg</em>, check if environment variable, <code>SINGULARITY_CACHEDIR</code> exists and it contains image named, <em>glasstools_keystone_beta.simg</em>. Alternately, add full path to image while running workflow, i.e., <code>&quot;${SINGULARITY_CACHEDIR}&quot;/glasstools_keystone_beta.simg</code></p>
+</blockquote>
+
+<ul>
+<li>This will source commands or workflow from <code>disk1/glasscore/configs/bin/goglass</code> script with following instructions:</li>
+</ul>
+
+<div class="notices info" >For now, fastq based WGS and WES alignments can be run using Singularity based workflow. We are working on shell wrappers for other workflows with priority for variant callers.
 </div>
 
-<h5 id="preprint">[Preprint</h5>
+<pre><code class="language-sh">-m or mode: DNA (Others: RNA)
+-t or type: align (Others: mutect, mutect2, varscan2 for DNA; align, star, prada for RNA)
+-i or input: fqs for paired-end fastq (Others: bam for paired-end legacy bam files or level 1 aligned bam files from GLASS workflows for variant calling or RNAseq analyses)
+-s or unique sample barcode, preferably containing immutable uuid
+-f or mapping table: required for DNA alignments to get details on read groups for multi-lane sequenced samples
+-d or data type: WGS or WES for alignments
+-n or run type: DRY (test run) or GO (actual run)
+</code></pre>
 
-<p><span class="ai ai-biorxiv" aria-hidden="true"></span></p>
+<ul>
+<li><p>To switch to whole genome derived fastq files, do:</p>
 
-<p>](<a href="https://www.biorxiv.org/content/early/2017/10/02/196139">https://www.biorxiv.org/content/early/2017/10/02/196139</a>)</p>
+<pre><code class="language-sh">... -m DNA -t align -i fqs -s sample_barcode -f sample_barcode_mapping_table.tsv -d WGS -n GO
+</code></pre></li>
 
-<h4 id="phase-1-data-release">Phase 1 data release</h4>
+<li><p>For dry run, e.g.,:</p>
 
-<div class="notices info" >
-Following GLASS Face2Face meetup at [SNO 2018 meeting](https://academic.oup.com/neuro-oncology/article-abstract/20/suppl_6/vi76/5153719?redirectedFrom=fulltext), we have now migrated to an updated and stable version of analysis workflows. To access updated workflows and the first release of mutation and clinical annotation dataset, you will need a prior approval to access https://synapse.org/glass data portal. Please contact Prof. [Roel Verhaak](https://www.jax.org/research-and-faculty/faculty/roel-verhaak) for additional details.
+<pre><code class="language-sh">... -m DNA -t align -i fqs -s sample_barcode -f mapping_table.tsv -d WGS -n DRY
+</code></pre></li>
+
+<li><p>In all cases, place raw fastq files and related mapping file under
+<code>&lt;path to disk2&gt;/glassdata/inputs/fqs/&lt;sample_barcode&gt;/</code> directory</p></li>
+
+<li><p>Default mapping table filename is <em><sample_barcode>_mapping_table.tsv</em></p></li>
+
+<li><p>Mapping table given at <code>-a</code> flag has specific tsv format as per <a href="https://software.broadinstitute.org/gatk/documentation/article.php?id=6472">https://software.broadinstitute.org/gatk/documentation/article.php?id=6472</a></p>
+
+<ul>
+<li>Strict checking for RGID tags, especially ID, PU, SM, PL and LB flags</li>
+<li>ID and PU must be unique while SM is identical across all lanes for a same sample</li>
+<li>PL should be ILLUMINA (all CAPS) or one of SOLID, LS454, HELICOS and PACBIO.</li>
+
+<li><p>LB should be identical across all lanes for a sample except different libraries were used</p>
+
+<blockquote>
+<p>NB: PU takes precedence over ID for BQSR step</p>
+</blockquote></li>
+
+<li><p>ID format should be: flowbarcode_lane (or at least unique across all lanes)</p></li>
+
+<li><p>PU format should be: flowbarcode_lane_sampleid (or at least unique across all lanes). If merging different samples at the later date, make sure to suffix sample_id in PU flag</p>
+
+<blockquote>
+<p>NB: LB is used during markduplicate step</p>
+</blockquote></li>
+</ul></li>
+</ul>
+
+<h4 id="docker">Docker</h4>
+
+<div class="notices spoiler" >We are working on `goglass` wrapper for docker. Until then, please use singularity version.
 </div>
 
-<div class="notices note" >
-This website now hosts a legacy version of workflows which were containerized in docker/singularity. Until we containerize updated snakemake based workflows, documentation on this website should be considered outdated.
-</div>
+<ul>
+<li><p>Replace <code>mygroupname</code> and <code>00000</code> with relevant group name and ID, respectively.</p>
 
-<p>GLASS logo is from a royalty-free icon made by Darius Dan of <a href="https://www.flaticon.com">flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 BY</a></p>
+<pre><code class="language-sh">docker run -e HOSTUSER=$USER -e HOSTGROUP=mygroupname \
+-e HOSTUSERID=$UID -e HOSTGROUPID=00000 \
+-v &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore \
+-v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch \
+-v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata \
+glasstools/keystone:latest goglass -m dna -t align -i fqs -s sample_barcode -f sample_mapping_table.tsv -d WES -n GO
+</code></pre></li>
+</ul>
+<div class="page-break"></div>
+<footer class=" footline" >
 	
-  
+</footer>
+
         
         </div> 
         
@@ -573,8 +709,6 @@ This website now hosts a legacy version of workflows which were containerized in
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -590,6 +724,9 @@ This website now hosts a legacy version of workflows which were containerized in
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -657,20 +794,6 @@ This website now hosts a legacy version of workflows which were containerized in
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -686,6 +809,23 @@ This website now hosts a legacy version of workflows which were containerized in
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -703,21 +843,8 @@ This website now hosts a legacy version of workflows which were containerized in
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -726,9 +853,6 @@ This website now hosts a legacy version of workflows which were containerized in
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -752,6 +876,25 @@ This website now hosts a legacy version of workflows which were containerized in
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
                     
@@ -762,8 +905,10 @@ This website now hosts a legacy version of workflows which were containerized in
 
 
         
+            <a class="nav nav-prev" href="/deprecated/howto/workflows/" title="Workflows"> <i class="fa fa-chevron-left"></i></a>
         
-            <a class="nav nav-next" href="/deprecated/" title="Deprecateds" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+            <a class="nav nav-next" href="/deprecated/howto/workflows/variant_calling/" title="Variant Caller" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

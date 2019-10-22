@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="generator" content="Hugo 0.58.3" />
-    <meta name="description" content="GLASS Workflows">
+    <meta name="description" content="Documentation for GLASS Consortium Workflows">
 <meta name="author" content="Samir B. Amin">
 
     
@@ -16,7 +16,7 @@
 
 
 
-    <title>HOME :: GLASS Workflows</title>
+    <title>Setup Singularity Image :: GLASS Workflows</title>
     
     
     <link href="/css/nucleus.css?1571756099" rel="stylesheet">
@@ -59,7 +59,7 @@
 <link href="/css/user.css" rel="stylesheet">
 
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/deprecated/setup/singularity/">
     <nav id="sidebar" class="showVisitedLinks no-print">
 
 
@@ -104,7 +104,7 @@
   
     
     <li data-nav-id="/deprecated/" title="Deprecateds" class="dd-item 
-        
+        parent
         
         
         ">
@@ -133,7 +133,7 @@
   
     
     <li data-nav-id="/deprecated/setup/" title=" Set Up" class="dd-item 
-        
+        parent
         
         
         ">
@@ -188,8 +188,8 @@
   
     
     <li data-nav-id="/deprecated/setup/singularity/" title="Setup Singularity Image" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/deprecated/setup/singularity/">
@@ -489,21 +489,90 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>HOME</a> > <a href='/deprecated/'>Deprecateds</a> > <a href='/deprecated/setup/'> Set Up</a> > Setup Singularity Image
+          
+         
+          
+         
+          
+         
+          
+           
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#how-to-install-singularity">How to install Singularity</a>
+<ul>
+<li>
+<ul>
+<li><a href="#manual-build">Manual build</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#singularity-image-for-glass-workflows">Singularity image for GLASS workflows</a>
+<ul>
+<li><a href="#download-current-build">Download current Build</a></li>
+<li><a href="#installation-on-nodes-without-internet-access">Installation on nodes without internet access</a>
+<ul>
+<li><a href="#on-an-internet-enabled-machine-e-g-login-node">On an internet-enabled machine, e.g., login node</a></li>
+<li><a href="#on-a-non-internet-machine-e-g-compute-node">On a non-internet machine, e.g., compute node</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
 
         
         <div id="body-inner" class="printwide">
           
+            <h1>Setup Singularity Image</h1>
+          
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
 
- 
-
-
-<h4 id="glioma-longitudinal-analysis-consortium">Glioma Longitudinal AnalySiS Consortium</h4>
+<p>Download and setup Singularity image: <em>glass-consortium/glasstools:beta</em></p>
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
@@ -511,36 +580,233 @@
         <span>
         
         
-        Issues loading website contents?
+        Looking for Docker image?
         
         </span>
     </div>
     <div class="expand-content" style="display: none;">
         
-If website is not loading all of its contents or have formatting issues, you may visit mirror website at http://guide.glass-consortium.org
+Visit [Docker](/setup/docker/) page for installation and configuring Docker based workflows.
 
     </div>
 </div>
 
-<h5 id="preprint">[Preprint</h5>
+<h2 id="how-to-install-singularity">How to install Singularity</h2>
 
-<p><span class="ai ai-biorxiv" aria-hidden="true"></span></p>
+<ul>
+<li>One time installation, <strong>requires admin privileges</strong></li>
+</ul>
 
-<p>](<a href="https://www.biorxiv.org/content/early/2017/10/02/196139">https://www.biorxiv.org/content/early/2017/10/02/196139</a>)</p>
+<blockquote>
+<p>Please ask your system administrator to install Singularity with following version. While installation should be done by IT administrator, running GLASS workflows does not require <code>sudo</code> privilege. Also, unlike potential root escalation while running docker container, Singularity based workflows are more isolated from host environment and less vulnerable to root escalation. Visit <a href="http://singularity.lbl.gov/user-guide#security-and-privilege-escalation">http://singularity.lbl.gov/user-guide#security-and-privilege-escalation</a> for more on security.</p>
+</blockquote>
 
-<h4 id="phase-1-data-release">Phase 1 data release</h4>
+<ul>
+<li>GLASS workflows are using Singularity <code>v2.4</code><br /></li>
+</ul>
 
-<div class="notices info" >
-Following GLASS Face2Face meetup at [SNO 2018 meeting](https://academic.oup.com/neuro-oncology/article-abstract/20/suppl_6/vi76/5153719?redirectedFrom=fulltext), we have now migrated to an updated and stable version of analysis workflows. To access updated workflows and the first release of mutation and clinical annotation dataset, you will need a prior approval to access https://synapse.org/glass data portal. Please contact Prof. [Roel Verhaak](https://www.jax.org/research-and-faculty/faculty/roel-verhaak) for additional details.
-</div>
+<blockquote>
+<p>Full version at the time of install: v2.4-install_718360bb.g718360bb<br />
+Commit: <a href="https://github.com/singularityware/singularity/commit/718360bb20b66cbafb85dd9d0a73bd6bb60c7a1f">https://github.com/singularityware/singularity/commit/718360bb20b66cbafb85dd9d0a73bd6bb60c7a1f</a></p>
+</blockquote>
 
-<div class="notices note" >
-This website now hosts a legacy version of workflows which were containerized in docker/singularity. Until we containerize updated snakemake based workflows, documentation on this website should be considered outdated.
-</div>
+<ul>
+<li><p>For better compatibility with pre-built GLASS image, please install Singularity from forked reposioty as follows:</p>
 
-<p>GLASS logo is from a royalty-free icon made by Darius Dan of <a href="https://www.flaticon.com">flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 BY</a></p>
+<pre><code class="language-sh">umask 0022
+
+git clone https://github.com/glass-consortium/singularity.git
+cd singularity
+
+## confirm last commit ID to be 718360bb20b66cbafb85dd9d0a73bd6bb60c7a1f for HEAD -&gt; master branch
+git log --name-status HEAD^..HEAD
+
+## fork master branch to a new branch, named install_718360bb
+git checkout -b install_718360bb
+git status
+</code></pre></li>
+</ul>
+
+<blockquote>
+<p>This will show&hellip;</p>
+
+<p>On branch install_718360bb<br />
+nothing to commit, working tree clean</p>
+</blockquote>
+
+<pre><code class="language-sh">./autogen.sh &amp;&amp; ./configure --prefix=/usr/local &amp;&amp; make
+
+# return exit code for compilation status
+echo $?
+
+## only one time, we need root privileges
+sudo make install
+
+## return to non-root user environment
+sudo -k
+
+cd ${HOME} # non-root user
+
+singularity --version
+</code></pre>
+
+<p>This will show <code>2.4-install_718360bb.g718360bb</code>. If so, installation is identical to an environment used to build GLASS Singularity image.</p>
+
+<h4 id="manual-build">Manual build</h4>
+
+<p>We recommend pulling pre-built Singularity image from Singularity registry at <a href="https://www.singularity-hub.org/collections/262">https://www.singularity-hub.org/collections/262</a></p>
+
+<p>Manual build is for improvement and debugging of current beta image, especially with reducing image size and adding shortcodes to additional GLASS workflows. Visit <a href="https://github.com/glass-consortium/glasstools">https://github.com/glass-consortium/glasstools</a> for Singularity file and automated build details.</p>
+
+<pre><code class="language-sh">git clone https://github.com/glass-consortium/glasstools.git
+cd build
+
+singularity build glasstools_keystone_beta.simg Singularity.beta
+singularity inspect glasstools_keystone_beta.simg
+</code></pre>
+
+<hr />
+
+<h2 id="singularity-image-for-glass-workflows">Singularity image for GLASS workflows</h2>
+
+<blockquote>
+<p>18-Nov-2017<br />
+v1.1.2s2</p>
+</blockquote>
+
+<p>Build details for <code>glass-consortium/glasstools</code> images.</p>
+
+<p><strong>PS:</strong> Documentation to run workflows is not yet ready. Visit <a href="https://docker.glass-consortium.org">https://docker.glass-consortium.org</a> for updates.</p>
+
+<h3 id="download-current-build">Download current Build</h3>
+
+<pre><code class="language-sh">singularity pull shub://glass-consortium/glasstools:beta
+</code></pre>
+
+<blockquote>
+<p>If you get an error like following:</p>
+</blockquote>
+
+<pre><code class="language-sh">mktemp: failed to create file via template ‘/scratch/.singularity-layerfile.XXXXXX’: No such file or directory
+ERROR: Failed to create temporary directory
+ABORT: Aborting with RETVAL=255
+</code></pre>
+
+<blockquote>
+<p>Rewrite and export following environment variables, and rerun <code>singularity pull</code> command.</p>
+</blockquote>
+
+<pre><code class="language-sh">echo &quot;${TMPDIR}&quot;
+echo &quot;${SINGULARITY_CACHEDIR}&quot;
+
+## both of these variables should be non-empty and point to user-writable paths
+
+TMPDIR=&quot;/mnt/disk1/singularity/GLASS/tmp&quot;
+SINGULARITY_CACHEDIR=&quot;/mnt/disk1/singularity/GLASS/cache&quot;
+export TMPDIR SINGULARITY_CACHEDIR
+
+mkdir -p &quot;${TMPDIR}&quot;
+mkdir -p &quot;${SINGULARITY_CACHEDIR}&quot;
+</code></pre>
+
+<p>Automated build, when successfully built is available at Singularity Hub: <a href="https://www.singularity-hub.org/collections/262">https://www.singularity-hub.org/collections/262</a> with image tag: <code>glass-consortium/glasstools:beta</code></p>
+
+<ul>
+<li>Download using <a href="http://singularity.lbl.gov">Singularity</a>, v2.4 or higher.</li>
+<li>Avoid running container as root. Singularity images does not require root privileges to run workflows.</li>
+<li>Default bind while running workflow is user ${HOME}.</li>
+<li>For better potability and disk mounts, ask your system admin to configure <code>/etc/singularity/singularity.conf</code> and set <code>enable overlay = yes</code>. Read <a href="http://singularity.lbl.gov/docs-mount">http://singularity.lbl.gov/docs-mount</a> for details.</li>
+</ul>
+
+<p>Visit <a href="/setup/diskmounts/">Disk Mounts</a> section for more on how to mount host disk volumes and start workflows.</p>
+
+<h3 id="installation-on-nodes-without-internet-access">Installation on nodes without internet access</h3>
+
+<ul>
+<li>If HPC has limited or no internet access, you can install GLASS workflows by first downloading singularity image on a different, internet-enabled machine and then moving downloaded image to machines with no internet access.</li>
+</ul>
+
+<h4 id="on-an-internet-enabled-machine-e-g-login-node">On an internet-enabled machine, e.g., login node</h4>
+
+<ul>
+<li><p>Following command will download singularity image with current GLASS workflows to a default <a href="http://singularity.lbl.gov/build-environment#cache-folders">singularity cache directory</a><sup><a href="http://singularity.lbl.gov/build-environment#cache">1</a></sup>. Alternately, you can specify alternate location for cache directory by environment variable <code>SINGULARITY_CACHEDIR</code>, i.e., one with enough space to store cache instead of user home directory.</p>
+
+<pre><code class="language-sh">SINGULARITY_CACHEDIR=/scratch/singularity/cache
+export SINGULARITY_CACHEDIR
+mkdir -p &quot;${SINGULARITY_CACHEDIR}&quot;
+
+## download singularity image with current GLASS workflows
+singularity pull shub://glass-consortium/glasstools:beta
+
+cd /scratch/singularity/cache
+md5sum glass-consortium-glasstools-master-beta.simg
+
+## inspect image for version: v1.1.2s2
+singularity inspect glass-consortium-glasstools-master-beta.simg
+</code></pre></li>
+
+<li><p>After a successful pull command, you should have a singularity image, <em>glass-consortium-glasstools-master-beta.simg</em> of approx. 1.3 GB size with md5sum of e3fcd575b10b6869cbf9faa5d98acdb4.</p></li>
+
+<li><p>If you are unable to download an image using <code>singularity pull</code> command, you can download an image using ftp command.</p>
+
+<pre><code class="language-sh">wget -P &quot;${SINGULARITY_CACHEDIR}&quot; ftp://ftp.jax.org/verhaak/image/singularity/glass-consortium-glasstools-master-beta.simg
+</code></pre></li>
+</ul>
+
+<h4 id="on-a-non-internet-machine-e-g-compute-node">On a non-internet machine, e.g., compute node</h4>
+
+<ul>
+<li><p>Please note that nodes with non-internet access must have <code>singularity</code> software installed using installation steps above. This is not required in most cases as login and compute nodes are on shared file system, and hence, <code>singularity</code> command and downloaded GLASS image on an login node can be accessed by all of compute nodes.</p></li>
+
+<li><p>Create a singularity cache directory to store downloaded GLASS workflows image</p>
+
+<pre><code class="language-sh">SINGULARITY_CACHEDIR=/scratch/singularity/cache
+export SINGULARITY_CACHEDIR
+mkdir -p &quot;${SINGULARITY_CACHEDIR}&quot;
+</code></pre></li>
+
+<li><p>Copy singularity image over local area network (LAN) connection from an internet-enabled machine (www-node) to non-internet node (lan-node)</p>
+
+<pre><code class="language-sh">rsync -avhP www-node:/scratch/singularity/cache/ lan-node:/scratch/singularity/cache/
+
+## image can be renamed
+mv glass-consortium-glasstools-master-beta.simg glasstools_keystone_beta.simg
+
+## inspect image
+cd &quot;${SINGULARITY_CACHEDIR}&quot;
+singularity inspect glasstools_keystone_beta.simg
+</code></pre></li>
+
+<li><p>Inspect log for <code>v1.1.2s2</code></p>
+
+<pre><code>{
+&quot;WEBSITE&quot;: &quot;https://docker.glass-consortium.org&quot;,
+&quot;org.label-schema.usage.singularity.deffile.bootstrap&quot;: &quot;docker&quot;,
+&quot;MAINTAINER&quot;: &quot;Samir B. Amin, tweet: sbamin, web: https://sbamin.com&quot;,
+&quot;NAME&quot;: &quot;glasstools:beta&quot;,
+&quot;LICENSE&quot;: &quot;https://github.com/glass-consortium/glasstools/blob/master/LICENSE&quot;,
+&quot;org.label-schema.usage&quot;: &quot;/.singularity.d/runscript.help&quot;,
+&quot;org.label-schema.schema-version&quot;: &quot;1.0&quot;,
+&quot;org.label-schema.build-date&quot;: &quot;2017-11-18T13:35:49+00:00&quot;,
+&quot;org.label-schema.usage.singularity.deffile.includecmd&quot;: &quot;no&quot;,
+&quot;VERSION&quot;: &quot;v1.1.2s2&quot;,
+&quot;org.label-schema.usage.singularity.deffile.from&quot;: &quot;ubuntu:16.04&quot;,
+&quot;org.label-schema.usage.singularity.deffile&quot;: &quot;Singularity.beta&quot;,
+&quot;SOURCECODE&quot;: &quot;https://github.com/glass-consortium/glasstools&quot;,
+&quot;org.label-schema.usage.singularity.runscript.help&quot;: &quot;/.singularity.d/runscript.help&quot;,
+&quot;org.label-schema.usage.singularity.version&quot;: &quot;2.4-feature-squashbuild-secbuild.g818b648&quot;,
+&quot;CONTACT&quot;: &quot;Roel Verhaak, tweet: roelverhaak, web: https://www.jax.org/verhaak-lab&quot;,
+&quot;org.label-schema.build-size&quot;: &quot;3629MB&quot;,
+&quot;ISSUES&quot;: &quot;https://github.com/glass-consortium/glassdocs/issues&quot;,
+&quot;DESCRIPTION&quot;: &quot;Singularity image to run GLASS consortium workflows&quot;
+}
+</code></pre></li>
+</ul>
+<div class="page-break"></div>
+<footer class=" footline" >
 	
-  
+</footer>
+
         
         </div> 
         
@@ -573,8 +839,6 @@ This website now hosts a legacy version of workflows which were containerized in
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -591,6 +855,7 @@ This website now hosts a legacy version of workflows which were containerized in
             
                 
                     
+                    
                 
                 
 
@@ -605,6 +870,9 @@ This website now hosts a legacy version of workflows which were containerized in
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -622,6 +890,7 @@ This website now hosts a legacy version of workflows which were containerized in
             
                 
                     
+                    
                 
                 
 
@@ -629,6 +898,28 @@ This website now hosts a legacy version of workflows which were containerized in
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -643,25 +934,6 @@ This website now hosts a legacy version of workflows which were containerized in
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -681,22 +953,6 @@ This website now hosts a legacy version of workflows which were containerized in
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -730,6 +986,22 @@ This website now hosts a legacy version of workflows which were containerized in
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -762,8 +1034,10 @@ This website now hosts a legacy version of workflows which were containerized in
 
 
         
+            <a class="nav nav-prev" href="/deprecated/setup/docker/" title="Setup Docker Image"> <i class="fa fa-chevron-left"></i></a>
         
-            <a class="nav nav-next" href="/deprecated/" title="Deprecateds" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+            <a class="nav nav-next" href="/deprecated/setup/diskmounts/" title="Setup Disk Mounts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

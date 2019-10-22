@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="generator" content="Hugo 0.58.3" />
-    <meta name="description" content="GLASS Workflows">
+    <meta name="description" content="Documentation for GLASS Consortium Workflows">
 <meta name="author" content="Samir B. Amin">
 
     
@@ -16,7 +16,7 @@
 
 
 
-    <title>HOME :: GLASS Workflows</title>
+    <title>Setup Docker Image :: GLASS Workflows</title>
     
     
     <link href="/css/nucleus.css?1571756099" rel="stylesheet">
@@ -59,7 +59,7 @@
 <link href="/css/user.css" rel="stylesheet">
 
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/deprecated/setup/docker/">
     <nav id="sidebar" class="showVisitedLinks no-print">
 
 
@@ -104,7 +104,7 @@
   
     
     <li data-nav-id="/deprecated/" title="Deprecateds" class="dd-item 
-        
+        parent
         
         
         ">
@@ -133,7 +133,7 @@
   
     
     <li data-nav-id="/deprecated/setup/" title=" Set Up" class="dd-item 
-        
+        parent
         
         
         ">
@@ -162,8 +162,8 @@
   
     
     <li data-nav-id="/deprecated/setup/docker/" title="Setup Docker Image" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/deprecated/setup/docker/">
@@ -489,21 +489,86 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>HOME</a> > <a href='/deprecated/'>Deprecateds</a> > <a href='/deprecated/setup/'> Set Up</a> > Setup Docker Image
+          
+         
+          
+         
+          
+         
+          
+           
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#installing-docker">Installing Docker</a></li>
+<li><a href="#docker-image">Docker image</a></li>
+<li><a href="#test-run">Test run</a>
+<ul>
+<li><a href="#with-data-mounts-and-host-user-group-mapping">With data mounts and host user:group mapping</a></li>
+<li><a href="#run-specific-tools">Run specific tools</a></li>
+<li><a href="#without-data-mounts">Without data mounts</a></li>
+<li><a href="#disable-usermapping">disable usermapping</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
 
         
         <div id="body-inner" class="printwide">
           
+            <h1>Setup Docker Image</h1>
+          
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
 
- 
-
-
-<h4 id="glioma-longitudinal-analysis-consortium">Glioma Longitudinal AnalySiS Consortium</h4>
+<p>Download and setup docker image: <em>glasstools/keystone</em></p>
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
@@ -511,36 +576,110 @@
         <span>
         
         
-        Issues loading website contents?
+        Looking for Singularity image?
         
         </span>
     </div>
     <div class="expand-content" style="display: none;">
         
-If website is not loading all of its contents or have formatting issues, you may visit mirror website at http://guide.glass-consortium.org
+Visit [Singularity](/setup/singularity/) page for installation and configuring Singularity based workflows.
 
     </div>
 </div>
 
-<h5 id="preprint">[Preprint</h5>
+<h3 id="installing-docker">Installing Docker</h3>
 
-<p><span class="ai ai-biorxiv" aria-hidden="true"></span></p>
+<p>Your system administrator can install Docker version <code>17.09.0-ce, build afdb6d4</code> or higher. For more, visit <a href="https://docs.docker.com/engine/installation/">https://docs.docker.com/engine/installation/</a></p>
 
-<p>](<a href="https://www.biorxiv.org/content/early/2017/10/02/196139">https://www.biorxiv.org/content/early/2017/10/02/196139</a>)</p>
+<h3 id="docker-image">Docker image</h3>
 
-<h4 id="phase-1-data-release">Phase 1 data release</h4>
+<pre><code class="language-sh">docker pull glasstools/keystone
+# OR
+docker pull glasstools/keystone:1.2.2
+</code></pre>
 
-<div class="notices info" >
-Following GLASS Face2Face meetup at [SNO 2018 meeting](https://academic.oup.com/neuro-oncology/article-abstract/20/suppl_6/vi76/5153719?redirectedFrom=fulltext), we have now migrated to an updated and stable version of analysis workflows. To access updated workflows and the first release of mutation and clinical annotation dataset, you will need a prior approval to access https://synapse.org/glass data portal. Please contact Prof. [Roel Verhaak](https://www.jax.org/research-and-faculty/faculty/roel-verhaak) for additional details.
-</div>
+<p><span class="fa fa-docker aln-middle"   aria-hidden="true"></span></p>
 
-<div class="notices note" >
-This website now hosts a legacy version of workflows which were containerized in docker/singularity. Until we containerize updated snakemake based workflows, documentation on this website should be considered outdated.
-</div>
+<p><a href="https://hub.docker.com/r/glasstools/keystone">https://hub.docker.com/r/glasstools/keystone</a></p>
 
-<p>GLASS logo is from a royalty-free icon made by Darius Dan of <a href="https://www.flaticon.com">flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 BY</a></p>
+<h3 id="test-run">Test run</h3>
+
+<h4 id="with-data-mounts-and-host-user-group-mapping">With data mounts and host user:group mapping</h4>
+
+<pre><code class="language-sh">export GLASSMOUNTS=&quot;/fastscratch/foo/dockvol/glass_tools/glass_mounts&quot;
+
+docker run -e HOSTUSER=$USER -e HOSTGROUP=verhaak-lab -e HOSTUSERID=$UID -e HOSTGROUPID=56565 -v &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore -v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch -v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata glasstools/keystone
+</code></pre>
+
+<ul>
+<li>This will source commands or workflow from <code>disk1/glasscore/Workflows/startup</code> script</li>
+<li>Visit <a href="/setup/diskmounts/">Disk Mounts</a> section for more on how to mount host disk volumes and start workflows.</li>
+</ul>
+
+<h4 id="run-specific-tools">Run specific tools</h4>
+
+<blockquote>
+<p>To run specific command (user id mapped to host user), use <code>&quot;-c bash command&quot;</code> format immediately after <code>docker run ... glasstools/keystone</code>.</p>
+</blockquote>
+
+<pre><code class="language-sh">export GLASSMOUNTS=&quot;/fastscratch/foo/dockvol/glass_tools/glass_mounts&quot;
+
+docker run -e HOSTUSER=$USER -e HOSTGROUP=verhaak-lab -e HOSTUSERID=$UID -e HOSTGROUPID=56565 -v &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore -v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch -v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata glasstools/keystone &quot;-c samtools&quot;
+
+## view data mounts
+docker run -e HOSTUSER=$USER -e HOSTGROUP=verhaak-lab -e HOSTUSERID=$UID -e HOSTGROUPID=56565 -v &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore -v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch -v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata glasstools/keystone &quot;-c ls -alh /mnt/&quot;
+</code></pre>
+
+<hr />
+
+<h4 id="without-data-mounts">Without data mounts</h4>
+
+<pre><code class="language-sh">docker run glasstools/keystone
+</code></pre>
+
+<blockquote>
+<p>keystone image is configured to be run with structured data mounts as shown under <code>glass_mounts</code> directory. Barebone <code>docker run glasstools/keystone</code> will quit immediately with partial message like following:</p>
+
+<p>User and Group ID mapping: ENABLE
+Running userid_mapping.sh script</p>
+</blockquote>
+
+<h4 id="disable-usermapping">disable usermapping</h4>
+
+<blockquote>
+<p><strong>PS:</strong> Without host user:group mapping, docker container will run under default <code>glassuser</code> which has limited read:write permissions to host file system.</p>
+
+<p>Supply <code>-e USERMAPPING=DISABLE</code> while starting docker container to disable user mapping to host system.</p>
+
+<p>Unlike user mapped, data mounts above, note change in command format when you disable user mapping, i.e., supply bash command in quoutes without prefix <code>-c</code></p>
+</blockquote>
+
+<pre><code class="language-sh">docker run -e USERMAPPING=DISABLE -v &quot;${GLASSMOUNTS}&quot;/disk1/glasscore:/mnt/glasscore -v &quot;${GLASSMOUNTS}&quot;/disk1/scratch:/mnt/scratch -v &quot;${GLASSMOUNTS}&quot;/disk2/glassdata:/mnt/glassdata glasstools/keystone &quot;id -a &amp;&amp; ls -alh /mnt/&quot;
+</code></pre>
+
+<ul>
+<li><p>Note that docker container running as a <code>glassuser</code> has not valid permission to access mounted host volumes.</p>
+
+<pre><code>User and Group ID mapping: DISABLE
+
+## INFO ##
+Running as a non-root glassuser with limited read-write privileges to host file system
+Visit http://docker.glass-consortium.org for more on how to use this docker image
+
+uid=2119518(glassuser) gid=712119(glass) groups=712119(glass),50(staff)
+total 8.0K
+drwxr-xr-x  5 root  root  4.0K Oct  2 09:52 .
+drwxr-xr-x 21 root  root  4.0K Oct  7 06:15 ..
+drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 glasscore
+drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 glassdata
+drwxr-x---  4 12345 56565 4.0K Oct  2 10:41 scratch
+</code></pre></li>
+</ul>
+<div class="page-break"></div>
+<footer class=" footline" >
 	
-  
+</footer>
+
         
         </div> 
         
@@ -573,8 +712,6 @@ This website now hosts a legacy version of workflows which were containerized in
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -591,6 +728,7 @@ This website now hosts a legacy version of workflows which were containerized in
             
                 
                     
+                    
                 
                 
 
@@ -605,6 +743,7 @@ This website now hosts a legacy version of workflows which were containerized in
             
             
                 
+                    
                     
                 
                 
@@ -622,86 +761,8 @@ This website now hosts a legacy version of workflows which were containerized in
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -743,6 +804,87 @@ This website now hosts a legacy version of workflows which were containerized in
 
                     
                     
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
 
                     
@@ -762,8 +904,10 @@ This website now hosts a legacy version of workflows which were containerized in
 
 
         
+            <a class="nav nav-prev" href="/deprecated/setup/" title=" Set Up"> <i class="fa fa-chevron-left"></i></a>
         
-            <a class="nav nav-next" href="/deprecated/" title="Deprecateds" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+            <a class="nav nav-next" href="/deprecated/setup/singularity/" title="Setup Singularity Image" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
